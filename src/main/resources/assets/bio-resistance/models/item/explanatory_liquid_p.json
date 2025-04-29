@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "sustoilmd:item/explanatory_liquid_p"
+  }
+}

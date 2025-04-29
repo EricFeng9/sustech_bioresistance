@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iii",
+        "cCc",
+        "IFI"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "c": {
+            "item": "minecraft:copper_ingot"
+        },
+        "C": {
+            "item": "minecraft:cauldron"
+        },
+        "I": {
+            "item": "minecraft:iron_block"
+        },
+        "F": {
+            "item": "minecraft:furnace"
+        }
+    },
+    "result": {
+        "item": "sustoilmd:autoclave",
+        "count": 1
+    }
+}

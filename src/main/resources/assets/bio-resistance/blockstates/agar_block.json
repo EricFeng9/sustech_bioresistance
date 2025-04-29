@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "bio-resistance:block/agar_block" }
+  }
+}

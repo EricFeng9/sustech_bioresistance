@@ -1,0 +1,18 @@
+{
+  "item.bio-resistance.explanatory_liquid_b":"降解液B",
+  "item.bio-resistance.explanatory_liquid_bp":"降解液B-P",
+  "item.bio-resistance.explanatory_liquid_p":"降解液P",
+  "item.bio-resistance.oil_bucket":"石油桶",
+  "item.bio-resistance.medium":"培养基(未消毒)",
+  "item.bio-resistance.medium_sterilized":"培养基(已消毒)",
+  "block.bio-resistance.bio_fridge": "冰箱",
+  "block.bio-resistance.pollution_block": "污染方块",
+  "block.bio-resistance.autoclave": "灭菌锅",
+  "block.bio-resistance.clean_table": "超净工作台",
+  "block.bio-resistance.agar_block":"琼脂块",
+  "block.bio-resistance.agar_block_yellow":"琼脂块(黄)",
+  "itemGroup.bio-resistance": "生物抗性",
+  "container.bio_fridge": "冰箱",
+  "container.autoclave": "灭菌锅",
+  "container.clean_table": "超净工作台"
+}

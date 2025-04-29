@@ -1,0 +1,18 @@
+{
+  "item.bio-resistance.explanatory_liquid_b":"Explanatory Liquid B",
+  "item.bio-resistance.explanatory_liquid_bp":"Explanatory Liquid B-P",
+  "item.bio-resistance.explanatory_liquid_p":"Explanatory Liquid P",
+  "item.bio-resistance.oil_bucket":"Oil Bucket",
+  "item.bio-resistance.medium":"Medium",
+  "item.bio-resistance.medium_sterilized":"Medium(sterilized)",
+  "block.bio-resistance.bio_fridge": "Bio Fridge",
+  "block.bio-resistance.pollution_block": "Pollution block",
+  "block.bio-resistance.autoclave": "Autoclave",
+  "block.bio-resistance.clean_table": "Clean Table",
+  "block.bio-resistance.agar_block":"Agar Block",
+  "block.bio-resistance.agar_block_yellow":"Agar Block(Yellow)",
+  "itemGroup.bio-resistance": "Bio-Resistance",
+  "container.bio_fridge": "Bio Fridge",
+  "container.autoclave": "Autoclave",
+  "container.clean_table": "Clean Table"
+}

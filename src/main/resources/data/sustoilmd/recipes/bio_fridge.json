@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ici",
+        "cCc",
+        "iIi"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "c": {
+            "item": "minecraft:copper_ingot"
+        },
+        "C": {
+            "item": "minecraft:chest"
+        },
+        "I": {
+            "item": "minecraft:ice"
+        }
+    },
+    "result": {
+        "item": "sustoilmd:bio_fridge",
+        "count": 1
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "sustoilmd:explanatory_liquid_b" },
+    { "item": "sustoilmd:explanatory_liquid_bp" }
+  ],
+  "result": { "item": "sustoilmd:explanatory_liquid_p",
+    "count": 1
+  }
+}
+

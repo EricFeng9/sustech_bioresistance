@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "bio-resistance:block/oil_fluid_block"
+    }
+  }
+}

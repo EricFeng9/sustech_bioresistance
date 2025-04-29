@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "bio-resistance",
+	"version": "${version}",
+	"name": "bio-resistance",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/bio-resistance/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"sustech.bioresistance.Bioresistance"
+		],
+		"client": [
+			"sustech.bioresistance.BioresistanceClient"
+		]
+	},
+	"mixins": [
+		"bio-resistance.mixins.json",
+		{
+			"config": "bio-resistance.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
