@@ -91,6 +91,7 @@ public class Bioresistance implements ModInitializer {
         ModEntityTypes.initialize();
         ModFluids.initialize();
         ModScreenHandlers.registerAll();
+        ModStatusEffects.initialize();
 
         LOGGER.info("Hello Fabric world!");
     }
