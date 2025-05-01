@@ -2,7 +2,6 @@ package sustech.bioresistance;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -49,6 +48,26 @@ public class ModItems {
             new Item(new Item.Settings()),
             MEDIUM_STERILIZED_KEY
     );
+    //metronidazole 甲硝唑
+    public static final RegistryKey<Item> METRONIDAZOLE_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "metronidazole"));
+    public static final Item METRONIDAZOLE = register(
+            new sustech.bioresistance.items.MetronidazoleItem(new Item.Settings()),
+            METRONIDAZOLE_KEY
+    );
+
+    //antifungal-drug 抗真菌药物
+    public static final RegistryKey<Item> ANTIFUNGAL_DRUG_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "antifungal_drug"));
+    public static final Item ANTIFUNGAL_DRUG = register(
+            new Item(new Item.Settings()),
+            ANTIFUNGAL_DRUG_KEY
+    );
+
+    //anti-drug resistant microbial capsules 抗耐药性微生物胶囊
+    public static final RegistryKey<Item> ANTI_DRUG_RESISTANT_MICROBIAL_CAPSULES_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "anti_drug_resistant_microbial_capsules"));
+    public static final Item ANTI_DRUG_RESISTANT_MICROBIAL_CAPSULES = register(
+            new Item(new Item.Settings()),
+            ANTI_DRUG_RESISTANT_MICROBIAL_CAPSULES_KEY
+    );
 
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
@@ -57,7 +76,9 @@ public class ModItems {
             itemGroup.add(EXPLANATORY_LIQUID_P);
             itemGroup.add(MEDIUM);
             itemGroup.add(MEDIUM_STERILIZED);
-
+            itemGroup.add(METRONIDAZOLE);
+            itemGroup.add(ANTIFUNGAL_DRUG);
+            itemGroup.add(ANTI_DRUG_RESISTANT_MICROBIAL_CAPSULES);
         });
     }
 

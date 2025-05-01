@@ -5,6 +5,9 @@
   "item.bio-resistance.oil_bucket":"Oil Bucket",
   "item.bio-resistance.medium":"Medium (Unsterilized)",
   "item.bio-resistance.medium_sterilized":"Medium (Sterilized)",
+    "item.bio-resistance.metronidazole": "Metronidazole",
+  "item.bio-resistance.antifungal_drug": "Antifungal Drug",
+  "item.bio-resistance.anti_drug_resistant_microbial_capsules": "Anti-drug Resistant Microbial Capsules",
   "block.bio-resistance.bio_fridge": "Bio Fridge",
   "block.bio-resistance.pollution_block": "Pollution Block",
   "block.bio-resistance.autoclave": "Autoclave",
@@ -15,6 +18,21 @@
   "container.bio_fridge": "Bio Fridge",
   "container.autoclave": "Autoclave",
   "container.clean_table": "Clean Table",
+  "effect.bio-resistance.exhaustion": "Exhaustion",
+  "effect.bio-resistance.tetanus": "Tetanus",
+  "tetanus.description": "Obtained after contact with iron tools, effect is Weakness I 5min, Slowness I 5min. After countdown ends, player will die immediately. Can be cured with Metronidazole or Anti-drug Resistant Microbial Capsules",
+  "tetanus.acute_phase": "Your tetanus infection has entered acute phase, ",
+  "tetanus.acute_phase.incurable": "incurable",
   
-  "effect.bio-resistance.exhaustion": "Exhaustion"
+  "metronidazole.description": "Used for tetanus treatment, kills tetanus bacteria",
+  "metronidazole.resistance": "Current tetanus bacteria resistance: ",
+  "metronidazole.resistance.client": "Please check on server",
+  "metronidazole.treatment.failed": "Treatment failed! Tetanus bacteria has developed resistance to metronidazole",
+  "metronidazole.treatment.success": "Treatment successful! Tetanus infection has been cleared",
+  
+  "commands.bioresistance.title.en": "Bio-Resistance Mod Commands",
+  "commands.bioresistance.help.description.en": "Display all available commands",
+  "commands.bioresistance.tetanus_resistance.set.description.en": "Set tetanus bacteria resistance to metronidazole (value between 0-1)",
+  "commands.bioresistance.tetanus_resistance.set.success.en": "Tetanus bacteria resistance set to %s",
+  "commands.bioresistance.tetanus_resistance.set.error.en": "Failed to set tetanus bacteria resistance"
 }

@@ -5,6 +5,9 @@
   "item.bio-resistance.oil_bucket":"石油桶",
   "item.bio-resistance.medium":"培养基(未消毒)",
   "item.bio-resistance.medium_sterilized":"培养基(已消毒)",
+  "item.bio-resistance.metronidazole": "甲硝唑",
+  "item.bio-resistance.antifungal_drug": "抗真菌药物",
+  "item.bio-resistance.anti_drug_resistant_microbial_capsules": "抗耐药性微生物胶囊",
   "block.bio-resistance.bio_fridge": "冰箱",
   "block.bio-resistance.pollution_block": "污染方块",
   "block.bio-resistance.autoclave": "灭菌锅",
@@ -16,5 +19,22 @@
   "container.autoclave": "灭菌锅",
   "container.clean_table": "超净工作台",
   
-  "effect.bio-resistance.exhaustion": "过度劳累"
+  "effect.bio-resistance.exhaustion": "过度劳累",
+  "effect.bio-resistance.tetanus": "破伤风",
+  
+  "tetanus.description": "每次接触铁制工具后获得，效果为虚弱I 5min、缓慢I 5min，倒计时结束后将直接死亡，可以通过甲硝唑或抗耐药性微生物胶囊治愈",
+  "tetanus.acute_phase": "您的破伤风感染已经进入急性发病期，",
+  "tetanus.acute_phase.incurable": "无可挽回",
+  
+  "metronidazole.description": "治疗破伤风使用，用于对破伤风杆菌造成杀伤",
+  "metronidazole.resistance": "当前破伤风杆菌耐药性：",
+  "metronidazole.resistance.client": "请在服务器中查看",
+  "metronidazole.treatment.failed": "治疗失败！破伤风杆菌对甲硝唑产生了抗性",
+  "metronidazole.treatment.success": "治疗成功！破伤风感染已被清除",
+  
+  "commands.bioresistance.title.zh": "生物抗性模组命令",
+  "commands.bioresistance.help.description.zh": "显示所有可用命令",
+  "commands.bioresistance.tetanus_resistance.set.description.zh": "设置破伤风杆菌对甲硝唑的耐药性（0-1之间的值）",
+  "commands.bioresistance.tetanus_resistance.set.success.zh": "破伤风杆菌耐药性已设置为 %s",
+  "commands.bioresistance.tetanus_resistance.set.error.zh": "设置破伤风杆菌耐药性失败"
 }

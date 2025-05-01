@@ -3,6 +3,7 @@ package sustech.bioresistance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -13,6 +14,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import sustech.bioresistance.complexBlocks.Bio_Fridge;
+import sustech.bioresistance.events.TetanusEventHandler;
 
 
 
@@ -92,6 +94,15 @@ public class Bioresistance implements ModInitializer {
         ModFluids.initialize();
         ModScreenHandlers.registerAll();
         ModStatusEffects.initialize();
+        
+        // 注册破伤风事件处理器
+        TetanusEventHandler.register();
+        
+        // 注册模组命令
+        CommandRegistrationCallback.EVENT.register(
+            (dispatcher, registryAccess, environment) -> 
+                sustech.bioresistance.commands.BioresistanceCommands.register(dispatcher, registryAccess, environment)
+        );
 
         LOGGER.info("Hello Fabric world!");
     }

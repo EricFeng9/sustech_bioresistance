@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "sustoilmd:item/explanatory_liquid_p"
+    "layer0": "bio-resistance:item/explanatory_liquid_p"
   }
 }

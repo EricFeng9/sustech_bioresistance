@@ -13,11 +13,11 @@ public class OccupiedBlock extends Block {
 
     @Override
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        return false; // 不允许其他方块替�?
+        return false; // 不允许其他方块替�?
     }
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return false; // 不允许直接放�?
+        return false; // 不允许直接放�?
     }
 }

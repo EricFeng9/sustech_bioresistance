@@ -8,7 +8,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import sustech.bioresistance.Bioresistance;
 import sustech.bioresistance.ModStatusEffects;
+import sustech.bioresistance.data.TetanusResistanceManager;
 
 @Mixin(PlayerEntity.class) // 注入到PlayerEntity类
 public class PlayerEntityMixin {
@@ -25,7 +27,8 @@ public class PlayerEntityMixin {
         }
         
         // 必须是服务器端玩家才能获取统计信息
-        if (player instanceof ServerPlayerEntity serverPlayer) {
+        if (player instanceof ServerPlayerEntity) {
+            ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
             // 获取玩家距离上次睡觉的时间(tick)
             int timeSinceRest = serverPlayer.getStatHandler().getStat(
                 Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST));
