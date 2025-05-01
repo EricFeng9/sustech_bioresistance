@@ -14,5 +14,7 @@
   "itemGroup.bio-resistance": "生物抗性",
   "container.bio_fridge": "冰箱",
   "container.autoclave": "灭菌锅",
-  "container.clean_table": "超净工作台"
+  "container.clean_table": "超净工作台",
+  
+  "effect.bio-resistance.exhaustion": "过度劳累"
 }
