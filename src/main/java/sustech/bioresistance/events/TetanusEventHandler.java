@@ -24,7 +24,7 @@ import net.minecraft.text.Text;
 public class TetanusEventHandler {
 
     // 破伤风效果持续时间 (5分钟 = 300秒 = 6000刻)
-    private static final int TETANUS_DURATION = 600;
+    private static final int TETANUS_DURATION = 6000;
     
     /**
      * 注册事件处理器
@@ -37,7 +37,7 @@ public class TetanusEventHandler {
             // 检查是否为铁制工具
             if (isIronTool(itemStack.getItem()) && !world.isClient()) {
                 // 有0.1% - 0.001f的几率感染破伤风
-                if (world.random.nextFloat() < 1f) {
+                if (world.random.nextFloat() < 0.001f) {
                     Bioresistance.LOGGER.info("玩家 {} 使用铁制工具感染了破伤风", player.getName().getString());
                     
                     // 给予破伤风效果
@@ -75,10 +75,6 @@ public class TetanusEventHandler {
                             // 治疗成功，移除破伤风效果
                             player.removeStatusEffect(ModStatusEffects.TETANUS);
                             
-                            // 如果有凋零效果也一并移除
-                            if (player.hasStatusEffect(StatusEffects.WITHER)) {
-                                player.removeStatusEffect(StatusEffects.WITHER);
-                            }
                             
                             Bioresistance.LOGGER.info("玩家 {} 使用甲硝唑成功治愈了破伤风", player.getName().getString());
                             
@@ -94,10 +90,6 @@ public class TetanusEventHandler {
                         // 抗耐药性微生物胶囊，总是成功
                         player.removeStatusEffect(ModStatusEffects.TETANUS);
                         
-                        // 如果有凋零效果也一并移除
-                        if (player.hasStatusEffect(StatusEffects.WITHER)) {
-                            player.removeStatusEffect(StatusEffects.WITHER);
-                        }
                         
                         Bioresistance.LOGGER.info("玩家 {} 使用抗耐药性微生物胶囊治愈了破伤风", player.getName().getString());
                         
@@ -120,7 +112,7 @@ public class TetanusEventHandler {
             // 检查是否为铁制工具
             if (isIronTool(itemStack.getItem()) && !world.isClient()) {
                 // 有0.1% - 0.001f的几率感染破伤风
-                if (world.random.nextFloat() < 1f) {
+                if (world.random.nextFloat() < 0.001f) {
                     Bioresistance.LOGGER.info("玩家 {} 使用铁制工具感染了破伤风", player.getName().getString());
                     
                     // 给予破伤风效果
@@ -159,8 +151,8 @@ public class TetanusEventHandler {
                 PlayerEntity player = (PlayerEntity) entity;
                 // 检查伤害源是否来自铁制工具或弓箭
                 if (isIronWeaponDamage(source) || isArrowDamage(source)) {
-                    // 有100%的几率感染破伤风
-                    if (player.getWorld().random.nextFloat() < 1f) {
+                    // 有1%的几率感染破伤风
+                    if (player.getWorld().random.nextFloat() < 0.01f) {
                         Bioresistance.LOGGER.info("玩家 {} 被铁器或弓箭攻击感染了破伤风", player.getName().getString());
                         
                         // 给予破伤风效果

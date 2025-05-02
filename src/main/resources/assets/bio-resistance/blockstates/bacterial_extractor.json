@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "bio-resistance:block/bacterial_extractor" },
+    "facing=south": { "model": "bio-resistance:block/bacterial_extractor", "y": 180 },
+    "facing=east": { "model": "bio-resistance:block/bacterial_extractor", "y": 90 },
+    "facing=west": { "model": "bio-resistance:block/bacterial_extractor", "y": 270 }
+  }
+}

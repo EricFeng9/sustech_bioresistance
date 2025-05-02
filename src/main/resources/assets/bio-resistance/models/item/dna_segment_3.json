@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bio-resistance:item/dna_segment_3"
+  }
+} 

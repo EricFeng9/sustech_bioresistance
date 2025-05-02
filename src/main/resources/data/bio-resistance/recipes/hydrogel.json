@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:slime_ball" },
+    { "item": "minecraft:water_bucket" }
+  ],
+  "result": { 
+    "item": "bio-resistance:hydrogel",
+    "count": 1
+  }
+} 

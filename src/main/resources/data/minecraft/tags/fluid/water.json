@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "sustoilmd:still_oil",
-    "sustoilmd:flowing_oil"
+    "bio-resistance:still_soil_extract",
+    "bio-resistance:flowing_soil_extract"
   ]
 }

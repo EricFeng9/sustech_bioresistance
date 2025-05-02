@@ -5,8 +5,10 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import sustech.bioresistance.complexBlocks.Autoclave_Entity;
+import sustech.bioresistance.complexBlocks.BacterialExtractor_Entity;
 import sustech.bioresistance.complexBlocks.Bio_Fridge_Entity;
 import sustech.bioresistance.complexBlocks.CleanTable_Entity;
+import sustech.bioresistance.complexBlocks.PlasmidExtractor_Entity;
 
 public class ModEntityTypes {
     public static <T extends BlockEntityType<?>> T register(String path, T blockEntityType) {
@@ -29,8 +31,18 @@ public class ModEntityTypes {
             "clean_table",
             BlockEntityType.Builder.create(CleanTable_Entity::new, ModBlocks.CleanTable).build()
     );
-
+    public static final BlockEntityType<BacterialExtractor_Entity> BacterialExtractor = register(
+            "bacterial_extractor",
+            BlockEntityType.Builder.create(BacterialExtractor_Entity::new, ModBlocks.BacterialExtractor).build()
+    );
+    // 由于ModBlocks.PlasmidExtractor可能尚未初始化，我们在initialize()方法中延迟注册
+    public static BlockEntityType<PlasmidExtractor_Entity> PlasmidExtractor;
 
     public static void initialize() {
+        // 在这里延迟初始化质粒提取器的BlockEntityType
+        PlasmidExtractor = register(
+            "plasmid_extractor",
+            BlockEntityType.Builder.create(PlasmidExtractor_Entity::new, ModBlocks.PlasmidExtractor).build()
+        );
     }
 }

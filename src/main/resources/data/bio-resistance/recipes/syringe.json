@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:glass" },
+    { "item": "minecraft:iron_nugget" }
+  ],
+  "result": { "item": "bio-resistance:syringe",
+    "count": 1
+  }
+}
+

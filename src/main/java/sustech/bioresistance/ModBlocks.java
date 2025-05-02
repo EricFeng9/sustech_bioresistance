@@ -34,6 +34,8 @@ public class ModBlocks {
             itemGroup.add(ModBlocks.Agar_Block_Yellow);
             itemGroup.add(ModBlocks.Autoclave);
             itemGroup.add(ModBlocks.CleanTable);
+            itemGroup.add(ModBlocks.BacterialExtractor);
+            itemGroup.add(ModBlocks.PlasmidExtractor);
         });
 
 
@@ -52,6 +54,16 @@ public class ModBlocks {
     public static final Block CleanTable = register(
             new CleanTable(AbstractBlock.Settings.copy(Blocks.STONE)),
             "clean_table",
+            true
+            );
+    public static final Block BacterialExtractor = register(
+            new BacterialExtractor(AbstractBlock.Settings.copy(Blocks.STONE)),
+            "bacterial_extractor",
+            true
+            );
+    public static final Block PlasmidExtractor = register(
+            new PlasmidExtractor(AbstractBlock.Settings.copy(Blocks.STONE)),
+            "plasmid_extractor",
             true
             );
 
