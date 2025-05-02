@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "bio-resistance:item/acidovorax_citrulli_medium"
+  }
+}

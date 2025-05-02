@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "bio-resistance:item/anti_drug_resistant_microbial_ointment"
+  }
+} 

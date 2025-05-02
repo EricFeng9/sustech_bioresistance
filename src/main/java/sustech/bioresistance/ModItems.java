@@ -48,6 +48,28 @@ public class ModItems {
             new Item(new Item.Settings()),
             MEDIUM_STERILIZED_KEY
     );
+    
+    //acidovorax_citrulli_medium Acidovorax citrulli培养基
+    public static final RegistryKey<Item> ACIDOVORAX_CITRULLI_MEDIUM_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "acidovorax_citrulli_medium"));
+    public static final Item ACIDOVORAX_CITRULLI_MEDIUM = register(
+            new Item(new Item.Settings()),
+            ACIDOVORAX_CITRULLI_MEDIUM_KEY
+    );
+    
+    //e_coli_medium 大肠杆菌培养基
+    public static final RegistryKey<Item> E_COLI_MEDIUM_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "e_coli_medium"));
+    public static final Item E_COLI_MEDIUM = register(
+            new Item(new Item.Settings()),
+            E_COLI_MEDIUM_KEY
+    );
+    
+    //e_coli_t6ss_medium 装配T6SS的大肠杆菌培养基
+    public static final RegistryKey<Item> E_COLI_T6SS_MEDIUM_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "e_coli_t6ss_medium"));
+    public static final Item E_COLI_T6SS_MEDIUM = register(
+            new Item(new Item.Settings()),
+            E_COLI_T6SS_MEDIUM_KEY
+    );
+    
     //metronidazole 甲硝唑
     public static final RegistryKey<Item> METRONIDAZOLE_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "metronidazole"));
     public static final Item METRONIDAZOLE = register(
@@ -55,10 +77,17 @@ public class ModItems {
             METRONIDAZOLE_KEY
     );
 
+    //streptomycin 链霉素
+    public static final RegistryKey<Item> STREPTOMYCIN_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "streptomycin"));
+    public static final Item STREPTOMYCIN = register(
+            new sustech.bioresistance.items.StreptomycinItem(new Item.Settings()),
+            STREPTOMYCIN_KEY
+    );
+    
     //antifungal-drug 抗真菌药物
     public static final RegistryKey<Item> ANTIFUNGAL_DRUG_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "antifungal_drug"));
     public static final Item ANTIFUNGAL_DRUG = register(
-            new Item(new Item.Settings()),
+            new sustech.bioresistance.items.AntifungalDrugItem(new Item.Settings()),
             ANTIFUNGAL_DRUG_KEY
     );
 
@@ -68,18 +97,92 @@ public class ModItems {
             new Item(new Item.Settings()),
             ANTI_DRUG_RESISTANT_MICROBIAL_CAPSULES_KEY
     );
+    
+    //anti-drug resistant microbial ointment 抗耐药性微生物软膏
+    public static final RegistryKey<Item> ANTI_DRUG_RESISTANT_MICROBIAL_OINTMENT_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "anti_drug_resistant_microbial_ointment"));
+    public static final Item ANTI_DRUG_RESISTANT_MICROBIAL_OINTMENT = register(
+            new Item(new Item.Settings()),
+            ANTI_DRUG_RESISTANT_MICROBIAL_OINTMENT_KEY
+    );
+
+    //syringe 注射器
+    public static final RegistryKey<Item> SYRINGE_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "syringe"));
+    public static final Item SYRINGE = register(
+            new Item(new Item.Settings()),
+            SYRINGE_KEY
+    );
+    
+    //hydrogel 水凝胶
+    public static final RegistryKey<Item> HYDROGEL_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "hydrogel"));
+    public static final Item HYDROGEL = register(
+            new Item(new Item.Settings()),
+            HYDROGEL_KEY
+    );
+
+    //empty capsule 空胶囊
+    public static final RegistryKey<Item> EMPTY_CAPSULE_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "empty_capsule"));
+    public static final Item EMPTY_CAPSULE = register(
+            new Item(new Item.Settings()),
+            EMPTY_CAPSULE_KEY
+    );
+    //e.coli extract 大肠杆菌提取液
+    public static final RegistryKey<Item> E_COLI_EXTRACT_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "e_coli_extract"));
+    public static final Item E_COLI_EXTRACT = register(
+            new Item(new Item.Settings()),
+            E_COLI_EXTRACT_KEY
+    );
+    
+    //antibiotic secretion bacteria extract 抗生素分泌菌提取液
+    public static final RegistryKey<Item> ANTIBIOTIC_BACTERIA_EXTRACT_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "antibiotic_bacteria_extract"));
+    public static final Item ANTIBIOTIC_BACTERIA_EXTRACT = register(
+            new Item(new Item.Settings()),
+            ANTIBIOTIC_BACTERIA_EXTRACT_KEY
+    );
+    
+    //DNA segment 1
+    public static final RegistryKey<Item> DNA_SEGMENT_1_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "dna_segment_1"));
+    public static final Item DNA_SEGMENT_1 = register(
+            new sustech.bioresistance.items.DnaSegmentItem(new Item.Settings(), "dna_segment_1.description"),
+            DNA_SEGMENT_1_KEY
+    );
+    
+    //DNA segment 2
+    public static final RegistryKey<Item> DNA_SEGMENT_2_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "dna_segment_2"));
+    public static final Item DNA_SEGMENT_2 = register(
+            new sustech.bioresistance.items.DnaSegmentItem(new Item.Settings(), "dna_segment_2.description"),
+            DNA_SEGMENT_2_KEY
+    );
+    
+    //DNA segment 3
+    public static final RegistryKey<Item> DNA_SEGMENT_3_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "dna_segment_3"));
+    public static final Item DNA_SEGMENT_3 = register(
+            new sustech.bioresistance.items.DnaSegmentItem(new Item.Settings(), "dna_segment_3.description"),
+            DNA_SEGMENT_3_KEY
+    );
 
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
-            itemGroup.add(EXPLANATORY_LIQUID_B);
-            itemGroup.add(EXPLANATORY_LIQUID_BP);
-            itemGroup.add(EXPLANATORY_LIQUID_P);
+            //itemGroup.add(EXPLANATORY_LIQUID_B);
+            //itemGroup.add(EXPLANATORY_LIQUID_BP);
+            //itemGroup.add(EXPLANATORY_LIQUID_P);
             itemGroup.add(MEDIUM);
             itemGroup.add(MEDIUM_STERILIZED);
+            itemGroup.add(ACIDOVORAX_CITRULLI_MEDIUM);
+            itemGroup.add(E_COLI_MEDIUM);
+            itemGroup.add(E_COLI_T6SS_MEDIUM);
             itemGroup.add(METRONIDAZOLE);
+            itemGroup.add(STREPTOMYCIN);
             itemGroup.add(ANTIFUNGAL_DRUG);
             itemGroup.add(ANTI_DRUG_RESISTANT_MICROBIAL_CAPSULES);
+            itemGroup.add(ANTI_DRUG_RESISTANT_MICROBIAL_OINTMENT);
+            itemGroup.add(SYRINGE);
+            itemGroup.add(HYDROGEL);
+            itemGroup.add(EMPTY_CAPSULE);
+            itemGroup.add(E_COLI_EXTRACT);
+            itemGroup.add(ANTIBIOTIC_BACTERIA_EXTRACT);
+            itemGroup.add(DNA_SEGMENT_1);
+            itemGroup.add(DNA_SEGMENT_2);
+            itemGroup.add(DNA_SEGMENT_3);
         });
     }
-
 }

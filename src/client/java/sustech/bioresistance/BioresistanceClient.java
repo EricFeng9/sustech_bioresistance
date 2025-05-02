@@ -7,8 +7,10 @@ import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.Identifier;
 import sustech.bioresistance.gui.Autoclave_Screen;
+import sustech.bioresistance.gui.BacterialExtractor_Screen;
 import sustech.bioresistance.gui.Bio_Fridge_Screen;
 import sustech.bioresistance.gui.CleanTable_Screen;
+import sustech.bioresistance.gui.PlasmidExtractor_Screen;
 
 
 public class BioresistanceClient implements ClientModInitializer {
@@ -29,6 +31,16 @@ public class BioresistanceClient implements ClientModInitializer {
                 CleanTable_Screen::new
 		);
 
+		ScreenRegistry.register(
+				ModScreenHandlers.BACTERIAL_EXTRACTOR_SCREEN_HANDLER,
+				BacterialExtractor_Screen::new
+		);
+		
+		ScreenRegistry.register(
+				ModScreenHandlers.PLASMID_EXTRACTOR_SCREEN_HANDLER,
+				PlasmidExtractor_Screen::new
+		);
+
 		// 注册油流体渲染
 		FluidRenderHandlerRegistry.INSTANCE.register(
 				ModFluids.STILL_OIL,
@@ -40,9 +52,34 @@ public class BioresistanceClient implements ClientModInitializer {
 				)
 		);
 
+		// 注册土壤浸取液流体渲染，使用水的贴图但添加棕色
+		FluidRenderHandlerRegistry.INSTANCE.register(
+				ModFluids.STILL_SOIL_EXTRACT,
+				ModFluids.FLOWING_SOIL_EXTRACT,
+				new SimpleFluidRenderHandler(
+						new Identifier("minecraft:block/water_still"),
+						new Identifier("minecraft:block/water_flow"),
+						0x8B4513 // RGB颜色（棕色）
+				)
+		);
+
 		// 将粘液块绑定到半透明渲染层（根据需求选择 TRANSLUCENT 或 CUTOUT）
 		BlockRenderLayerMap.INSTANCE.putBlock(
 				ModBlocks.Agar_Block_Yellow,
+				RenderLayer.getTranslucent()
+		);
+		
+		// 将土壤浸取液流体方块和流体都绑定到透明渲染层
+		BlockRenderLayerMap.INSTANCE.putBlock(
+				ModFluids.SOIL_EXTRACT_FLUID_BLOCK,
+				RenderLayer.getTranslucent()
+		);
+		BlockRenderLayerMap.INSTANCE.putFluid(
+				ModFluids.STILL_SOIL_EXTRACT,
+				RenderLayer.getTranslucent()
+		);
+		BlockRenderLayerMap.INSTANCE.putFluid(
+				ModFluids.FLOWING_SOIL_EXTRACT,
 				RenderLayer.getTranslucent()
 		);
 	}

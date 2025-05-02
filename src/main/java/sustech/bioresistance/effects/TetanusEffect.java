@@ -55,8 +55,8 @@ public class TetanusEffect extends StatusEffect {
         // 检查效果剩余时间
         StatusEffectInstance tetanusInstance = entity.getStatusEffect(this);
         int sendMessageCnt = 0;
-        // 如果破伤风效果快要结束（剩余时间小于1秒）且实体还活着
-        if (tetanusInstance != null && tetanusInstance.getDuration() <= 20 && entity.isAlive()) {
+        // 如果破伤风效果快要结束（剩余时间小于0.5秒）且实体还活着
+        if (tetanusInstance != null && tetanusInstance.getDuration() <= 10 && entity.isAlive()) {
             
             // 如果是玩家，发送消息提示进入急性期
             if (entity instanceof PlayerEntity player && sendMessageCnt == 0) {

@@ -12,6 +12,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import sustech.bioresistance.Bioresistance;
 import sustech.bioresistance.data.TetanusResistanceManager;
+import sustech.bioresistance.data.PlagueResistanceManager;
+import sustech.bioresistance.data.CandidaResistanceManager;
 
 /**
  * 生物抗性模组命令系统
@@ -44,6 +46,22 @@ public class BioresistanceCommands {
             )
         );
         
+        // 添加plague_resistance子命令
+        mainCommand.then(CommandManager.literal("plague_resistance")
+            .then(CommandManager.literal("set")
+                .then(CommandManager.argument("value", FloatArgumentType.floatArg())
+                    .executes(BioresistanceCommands::executeSetPlagueResistance))
+            )
+        );
+        
+        // 添加candida_resistance子命令
+        mainCommand.then(CommandManager.literal("candida_resistance")
+            .then(CommandManager.literal("set")
+                .then(CommandManager.argument("value", FloatArgumentType.floatArg())
+                    .executes(BioresistanceCommands::executeSetCandidaResistance))
+            )
+        );
+        
         // 注册到分发器
         dispatcher.register(mainCommand);
         
@@ -64,6 +82,12 @@ public class BioresistanceCommands {
             .setStyle(Style.EMPTY.withColor(Formatting.YELLOW)), false);
         
         source.sendFeedback(() -> Text.literal("/bioresistance tetanus_resistance set <value> - Set tetanus bacteria resistance to metronidazole (value between 0-1)")
+            .setStyle(Style.EMPTY.withColor(Formatting.YELLOW)), false);
+        
+        source.sendFeedback(() -> Text.literal("/bioresistance plague_resistance set <value> - Set plague bacteria resistance to streptomycin (value between 0-1)")
+            .setStyle(Style.EMPTY.withColor(Formatting.YELLOW)), false);
+        
+        source.sendFeedback(() -> Text.literal("/bioresistance candida_resistance set <value> - Set candida resistance to antifungal drug (value between 0-1)")
             .setStyle(Style.EMPTY.withColor(Formatting.YELLOW)), false);
         
         return 1;
@@ -96,6 +120,72 @@ public class BioresistanceCommands {
         } else {
             // 发送失败反馈
             source.sendFeedback(() -> Text.literal("Failed to set tetanus bacteria resistance")
+                .setStyle(Style.EMPTY.withColor(Formatting.RED)), true);
+        }
+        
+        return success ? 1 : 0;
+    }
+    
+    /**
+     * 执行设置鼠疫耶尔森菌耐药性命令
+     */
+    private static int executeSetPlagueResistance(CommandContext<ServerCommandSource> context) {
+        ServerCommandSource source = context.getSource();
+        
+        // 获取值参数
+        float value = FloatArgumentType.getFloat(context, "value");
+        
+        // 限制值在0-1范围内
+        value = Math.max(0.0f, Math.min(1.0f, value));
+        
+        // 获取耐药性管理器并设置值
+        PlagueResistanceManager manager = PlagueResistanceManager.getManager(source.getServer());
+        boolean success = manager.setResistance(value);
+        
+        // 保存最终值用于lambda表达式
+        final float finalValue = value;
+        
+        if (success) {
+            // 发送成功反馈
+            source.sendFeedback(() -> Text.literal("Plague bacteria resistance set to " + 
+                String.format("%.1f%%", finalValue * 100))
+                .setStyle(Style.EMPTY.withColor(Formatting.GREEN)), true);
+        } else {
+            // 发送失败反馈
+            source.sendFeedback(() -> Text.literal("Failed to set plague bacteria resistance")
+                .setStyle(Style.EMPTY.withColor(Formatting.RED)), true);
+        }
+        
+        return success ? 1 : 0;
+    }
+    
+    /**
+     * 执行设置耳念珠菌耐药性命令
+     */
+    private static int executeSetCandidaResistance(CommandContext<ServerCommandSource> context) {
+        ServerCommandSource source = context.getSource();
+        
+        // 获取值参数
+        float value = FloatArgumentType.getFloat(context, "value");
+        
+        // 限制值在0-1范围内
+        value = Math.max(0.0f, Math.min(1.0f, value));
+        
+        // 获取耐药性管理器并设置值
+        CandidaResistanceManager manager = CandidaResistanceManager.getManager(source.getServer());
+        boolean success = manager.setResistance(value);
+        
+        // 保存最终值用于lambda表达式
+        final float finalValue = value;
+        
+        if (success) {
+            // 发送成功反馈
+            source.sendFeedback(() -> Text.literal("Candida resistance set to " + 
+                String.format("%.1f%%", finalValue * 100))
+                .setStyle(Style.EMPTY.withColor(Formatting.GREEN)), true);
+        } else {
+            // 发送失败反馈
+            source.sendFeedback(() -> Text.literal("Failed to set candida resistance")
                 .setStyle(Style.EMPTY.withColor(Formatting.RED)), true);
         }
         
