@@ -160,6 +160,19 @@ public class ModItems {
             DNA_SEGMENT_3_KEY
     );
 
+    //生老鼠肉
+    public static final RegistryKey<Item> RAW_RAT_MEAT_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "raw_rat_meat"));
+    public static final Item RAW_RAT_MEAT = register(
+            new sustech.bioresistance.items.DnaSegmentItem(new Item.Settings(), "raw_rat_meat.description"),
+            RAW_RAT_MEAT_KEY
+    );
+
+    //熟老鼠肉
+    public static final RegistryKey<Item> COOKED_RAT_MEAT_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "cooked_rat_meat"));
+    public static final Item COOKED_RAT_MEAT = register(
+            new sustech.bioresistance.items.DnaSegmentItem(new Item.Settings(), "cooked_rat_meat.description"),
+            COOKED_RAT_MEAT_KEY
+    );
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
             //itemGroup.add(EXPLANATORY_LIQUID_B);
@@ -183,6 +196,8 @@ public class ModItems {
             itemGroup.add(DNA_SEGMENT_1);
             itemGroup.add(DNA_SEGMENT_2);
             itemGroup.add(DNA_SEGMENT_3);
+            itemGroup.add(RAW_RAT_MEAT);
+            itemGroup.add(COOKED_RAT_MEAT);
         });
     }
 }

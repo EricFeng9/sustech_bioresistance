@@ -1,5 +1,13 @@
 package sustech.bioresistance;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import net.fabricmc.api.ModInitializer;
@@ -25,6 +33,15 @@ public class Bioresistance implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+    public static final EntityType<RatEntity> RAT = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier("examplemod", "rat"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, RatEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                    .build()
+    );
+
+
 	@Override
 	public void onInitialize() {
 
@@ -36,7 +53,7 @@ public class Bioresistance implements ModInitializer {
         ModFluids.initialize();
         ModScreenHandlers.registerAll();
         ModStatusEffects.initialize();
-        
+        FabricDefaultAttributeRegistry.register(RAT, RatEntity.createRatAttributes());
         // 注册破伤风事件处理器
         TetanusEventHandler.register();
         
