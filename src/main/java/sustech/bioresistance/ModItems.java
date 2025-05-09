@@ -163,16 +163,24 @@ public class ModItems {
     //生老鼠肉
     public static final RegistryKey<Item> RAW_RAT_MEAT_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "raw_rat_meat"));
     public static final Item RAW_RAT_MEAT = register(
-            new sustech.bioresistance.items.DnaSegmentItem(new Item.Settings(), "raw_rat_meat.description"),
+            new sustech.bioresistance.items.RawRatMeatItem(new Item.Settings()),
             RAW_RAT_MEAT_KEY
     );
 
     //熟老鼠肉
     public static final RegistryKey<Item> COOKED_RAT_MEAT_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "cooked_rat_meat"));
     public static final Item COOKED_RAT_MEAT = register(
-            new sustech.bioresistance.items.DnaSegmentItem(new Item.Settings(), "cooked_rat_meat.description"),
+            new sustech.bioresistance.items.CookedRatMeatItem(new Item.Settings()),
             COOKED_RAT_MEAT_KEY
     );
+    
+    //老鼠生成蛋
+    public static final RegistryKey<Item> RAT_SPAWN_EGG_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "rat_spawn_egg"));
+    public static final Item RAT_SPAWN_EGG = register(
+            new net.minecraft.item.SpawnEggItem(ModEntities.RAT, 0x656565, 0x3B3B3B, new Item.Settings()),
+            RAT_SPAWN_EGG_KEY
+    );
+    
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
             //itemGroup.add(EXPLANATORY_LIQUID_B);
@@ -198,6 +206,7 @@ public class ModItems {
             itemGroup.add(DNA_SEGMENT_3);
             itemGroup.add(RAW_RAT_MEAT);
             itemGroup.add(COOKED_RAT_MEAT);
+            itemGroup.add(RAT_SPAWN_EGG);
         });
     }
 }

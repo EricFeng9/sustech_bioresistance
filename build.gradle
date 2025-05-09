@@ -16,6 +16,15 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+	
+	maven {
+        name = 'GeckoLib'
+        url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        content {
+                includeGroupByRegex("software\\.bernie.*")
+                includeGroup("com.eliotlash.mclib")
+        }
+    }
 }
 
 loom {
@@ -27,7 +36,6 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
-
 }
 
 dependencies {
@@ -38,7 +46,20 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	// GeckoLib依赖 - 用于所有环境
+	modImplementation "software.bernie.geckolib:geckolib-fabric-1.20.4:4.4.4"
+    
+    // 为客户端和服务端都添加GeckoLib依赖
+    modImplementation(fabricApi.module("fabric-api-base", project.fabric_version))
+    modImplementation(fabricApi.module("fabric-networking-api-v1", project.fabric_version))
+
+    // 客户端特定依赖
+    modClientImplementation(fabricApi.module("fabric-rendering-v1", project.fabric_version))
+    modClientImplementation(fabricApi.module("fabric-rendering-data-attachment-v1", project.fabric_version))
 	
+	// 辅助库
+    implementation "com.eliotlash.mclib:mclib:20"
 }
 
 processResources {
