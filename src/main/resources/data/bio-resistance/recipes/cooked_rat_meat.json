@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "bio-resistance:raw_rat_meat"
+  },
+  "result": "bio-resistance:cooked_rat_meat"
+} 

@@ -6,6 +6,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import sustech.bioresistance.effects.ExhaustionEffect;
+import sustech.bioresistance.effects.PlagueEffect;
 import sustech.bioresistance.effects.TetanusEffect;
 
 public class ModStatusEffects {
@@ -17,6 +18,9 @@ public class ModStatusEffects {
     
     // 注册破伤风效果
     public static final StatusEffect TETANUS = new TetanusEffect();
+    
+    // 注册鼠疫效果
+    public static final StatusEffect PLAGUE = new PlagueEffect();
 
     // 初始化方法
     public static void initialize() {
@@ -32,6 +36,13 @@ public class ModStatusEffects {
                 Registries.STATUS_EFFECT,
                 new Identifier(Bioresistance.MOD_ID, "tetanus"), // 唯一ID为"tetanus"
                 TETANUS // 破伤风效果实例
+        );
+        
+        // 注册鼠疫效果
+        Registry.register(
+                Registries.STATUS_EFFECT,
+                new Identifier(Bioresistance.MOD_ID, "plague"), // 唯一ID为"plague"
+                PLAGUE // 鼠疫效果实例
         );
         
         Bioresistance.LOGGER.info("注册状态效果");

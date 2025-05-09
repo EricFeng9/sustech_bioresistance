@@ -1,0 +1,133 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "bio-resistance:entity/rat/texture"
+	},
+	"elements": [
+		{
+			"name": "头",
+			"from": [2, 2, 3],
+			"to": [6, 6, 8],
+			"faces": {
+				"north": {"uv": [0, 7, 2, 9], "texture": "#0"},
+				"east": {"uv": [3, 4, 5.5, 6], "texture": "#0"},
+				"south": {"uv": [7.5, 2.5, 9.5, 4.5], "texture": "#0"},
+				"west": {"uv": [0, 5, 2.5, 7], "texture": "#0"},
+				"up": {"uv": [7.5, 6.5, 5.5, 4], "texture": "#0"},
+				"down": {"uv": [8, 0, 6, 2.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "身子",
+			"from": [5, 1, 3],
+			"to": [11, 5, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-1, 0, 0]},
+			"faces": {
+				"north": {"uv": [3, 0, 6, 2], "texture": "#0"},
+				"east": {"uv": [2.5, 6, 5, 8], "texture": "#0"},
+				"south": {"uv": [3, 2, 6, 4], "texture": "#0"},
+				"west": {"uv": [5, 6.5, 7.5, 8.5], "texture": "#0"},
+				"up": {"uv": [3, 2.5, 0, 0], "texture": "#0"},
+				"down": {"uv": [3, 2.5, 0, 5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "右耳",
+			"from": [4, 5, 2],
+			"to": [5, 7, 4],
+			"faces": {
+				"north": {"uv": [2.5, 5, 3, 6], "texture": "#0"},
+				"east": {"uv": [5, 9.5, 6, 10.5], "texture": "#0"},
+				"south": {"uv": [2, 7, 2.5, 8], "texture": "#0"},
+				"west": {"uv": [6, 9.5, 7, 10.5], "texture": "#0"},
+				"up": {"uv": [7.5, 3.5, 7, 2.5], "texture": "#0"},
+				"down": {"uv": [10, 7.5, 9.5, 8.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "左耳",
+			"from": [4, 5, 7],
+			"to": [5, 7, 9],
+			"faces": {
+				"north": {"uv": [8, 9.5, 8.5, 10.5], "texture": "#0"},
+				"east": {"uv": [9.5, 6.5, 10.5, 7.5], "texture": "#0"},
+				"south": {"uv": [8.5, 9.5, 9, 10.5], "texture": "#0"},
+				"west": {"uv": [7, 9.5, 8, 10.5], "texture": "#0"},
+				"up": {"uv": [9.5, 10.5, 9, 9.5], "texture": "#0"},
+				"down": {"uv": [10, 9.5, 9.5, 10.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "右前足",
+			"from": [5, 0, 3],
+			"to": [7, 2, 5],
+			"faces": {
+				"north": {"uv": [6, 2.5, 7, 3.5], "texture": "#0"},
+				"east": {"uv": [7.5, 6.5, 8.5, 7.5], "texture": "#0"},
+				"south": {"uv": [7.5, 7.5, 8.5, 8.5], "texture": "#0"},
+				"west": {"uv": [8, 0, 9, 1], "texture": "#0"},
+				"up": {"uv": [9, 2, 8, 1], "texture": "#0"},
+				"down": {"uv": [3, 8, 2, 9], "texture": "#0"}
+			}
+		},
+		{
+			"name": "右后足",
+			"from": [9, 0, 3],
+			"to": [11, 2, 5],
+			"faces": {
+				"north": {"uv": [8.5, 7.5, 9.5, 8.5], "texture": "#0"},
+				"east": {"uv": [8, 8.5, 9, 9.5], "texture": "#0"},
+				"south": {"uv": [0, 9, 1, 10], "texture": "#0"},
+				"west": {"uv": [9, 0, 10, 1], "texture": "#0"},
+				"up": {"uv": [2, 10, 1, 9], "texture": "#0"},
+				"down": {"uv": [10, 1, 9, 2], "texture": "#0"}
+			}
+		},
+		{
+			"name": "左前足",
+			"from": [5, 0, 6],
+			"to": [7, 2, 8],
+			"faces": {
+				"north": {"uv": [3, 8, 4, 9], "texture": "#0"},
+				"east": {"uv": [4, 8, 5, 9], "texture": "#0"},
+				"south": {"uv": [5, 8.5, 6, 9.5], "texture": "#0"},
+				"west": {"uv": [6, 8.5, 7, 9.5], "texture": "#0"},
+				"up": {"uv": [9.5, 7.5, 8.5, 6.5], "texture": "#0"},
+				"down": {"uv": [8, 8.5, 7, 9.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "左后足",
+			"from": [9, 0, 6],
+			"to": [11, 2, 8],
+			"faces": {
+				"north": {"uv": [2, 9, 3, 10], "texture": "#0"},
+				"east": {"uv": [3, 9, 4, 10], "texture": "#0"},
+				"south": {"uv": [4, 9, 5, 10], "texture": "#0"},
+				"west": {"uv": [9, 8.5, 10, 9.5], "texture": "#0"},
+				"up": {"uv": [10.5, 3, 9.5, 2], "texture": "#0"},
+				"down": {"uv": [10.5, 3, 9.5, 4], "texture": "#0"}
+			}
+		},
+		{
+			"name": "尾巴",
+			"from": [10, 1, 5],
+			"to": [16, 2, 6],
+			"faces": {
+				"north": {"uv": [7.5, 4.5, 10.5, 5], "texture": "#0"},
+				"east": {"uv": [6, 3.5, 6.5, 4], "texture": "#0"},
+				"south": {"uv": [7.5, 5, 10.5, 5.5], "texture": "#0"},
+				"west": {"uv": [5, 6, 5.5, 6.5], "texture": "#0"},
+				"up": {"uv": [10.5, 6, 7.5, 5.5], "texture": "#0"},
+				"down": {"uv": [10.5, 6, 7.5, 6.5], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [2, 0, 0],
+			"translation": [2.5, 0, 0]
+		}
+	}
+}

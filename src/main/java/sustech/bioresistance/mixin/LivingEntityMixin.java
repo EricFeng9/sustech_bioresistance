@@ -36,24 +36,37 @@ public class LivingEntityMixin {
 
     /**
      * 拦截移除所有效果的方法
-     * 防止破伤风被牛奶等物品移除
+     * 防止破伤风和鼠疫被牛奶等物品移除
      * @param callback 回调信息
      */
     @Inject(method = "clearStatusEffects", at = @At("HEAD"), cancellable = true)
     private void onClearStatusEffects(CallbackInfoReturnable<Boolean> callback) {
         LivingEntity entity = (LivingEntity) (Object) this;
         
-        // 如果实体有破伤风效果，需要暂时保存它
-        if (entity.hasStatusEffect(ModStatusEffects.TETANUS)) {
-            // 先保存破伤风效果的实例
-            StatusEffectInstance tetanusEffect = entity.getStatusEffect(ModStatusEffects.TETANUS);
+        // 检查特殊效果
+        boolean hasTetanus = entity.hasStatusEffect(ModStatusEffects.TETANUS);
+        boolean hasPlague = entity.hasStatusEffect(ModStatusEffects.PLAGUE);
+        
+        // 如果实体有破伤风或鼠疫效果，需要特殊处理
+        if (hasTetanus || hasPlague) {
+            // 保存特殊效果
+            StatusEffectInstance tetanusEffect = null;
+            StatusEffectInstance plagueEffect = null;
+            
+            if (hasTetanus) {
+                tetanusEffect = entity.getStatusEffect(ModStatusEffects.TETANUS);
+            }
+            
+            if (hasPlague) {
+                plagueEffect = entity.getStatusEffect(ModStatusEffects.PLAGUE);
+            }
             
             // 临时变量，记录是否有其他效果被清除
             boolean otherEffectsCleared = false;
             
-            // 先清除除了破伤风以外的所有效果
+            // 先清除除了破伤风和鼠疫以外的所有效果
             for (StatusEffect effect : entity.getActiveStatusEffects().keySet().toArray(new StatusEffect[0])) {
-                if (effect != ModStatusEffects.TETANUS) {
+                if (effect != ModStatusEffects.TETANUS && effect != ModStatusEffects.PLAGUE) {
                     entity.removeStatusEffect(effect);
                     otherEffectsCleared = true;
                 }
@@ -67,22 +80,25 @@ public class LivingEntityMixin {
     
     /**
      * 拦截移除单个效果的方法
-     * 防止破伤风效果被牛奶等物品移除
+     * 防止破伤风和鼠疫效果被牛奶等物品移除
      * @param effect 要移除的效果
      * @param callback 回调信息
      */
     @Inject(method = "removeStatusEffect", at = @At("HEAD"), cancellable = true)
     private void onRemoveStatusEffect(StatusEffect effect, CallbackInfoReturnable<Boolean> callback) {
-        // 如果尝试移除的是破伤风效果，阻止操作
-        if (effect == ModStatusEffects.TETANUS) {
-            // 仅允许从TetanusEventHandler中主动调用的移除操作
+        // 如果尝试移除的是破伤风或鼠疫效果，阻止操作
+        if (effect == ModStatusEffects.TETANUS || effect == ModStatusEffects.PLAGUE) {
+            // 仅允许从PlagueEventHandler或TetanusEventHandler中主动调用的移除操作
             // 这是通过调用栈判断的，不太完美但可用
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             boolean allowedCaller = false;
             
             // 检查调用栈中是否有我们的事件处理类
             for (StackTraceElement element : stackTrace) {
-                if (element.getClassName().contains("TetanusEventHandler")) {
+                String className = element.getClassName();
+                if (className.contains("TetanusEventHandler") || 
+                    className.contains("PlagueEventHandler") ||
+                    className.contains("ModStatusEffects")) {
                     allowedCaller = true;
                     break;
                 }

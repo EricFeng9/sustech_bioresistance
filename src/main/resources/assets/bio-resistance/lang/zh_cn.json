@@ -46,8 +46,11 @@
   "tetanus.acute_phase.incurable": "无可挽回",
   
   "plague.description": "接触感染源后获得，效果为虚弱II 7min、反胃I 7min，倒计时结束后将直接死亡，可以通过链霉素或抗耐药性微生物胶囊治愈",
-  "plague.acute_phase": "您的鼠疫感染已经进入急性发病期，",
-  "plague.acute_phase.incurable": "无可挽回",
+  "plague.acute_phase": "你的鼠疫症状恶化了！",
+  "plague.acute_phase.incurable": "你需要尽快治疗！",
+  "plague.cured.by.streptomycin": "链霉素治愈了你的鼠疫",
+  "plague.not.cured.by.streptomycin": "链霉素没能治愈你的鼠疫，再试一次",
+  "plague.cured.by.capsules": "抗耐药性微生物胶囊治愈了你的鼠疫",
   
   "candida.description": "接触感染源后获得，效果为缓慢II 6min、饥饿II 6min，倒计时结束后将直接死亡，可以通过抗真菌药或抗耐药性微生物胶囊治愈",
   "candida.acute_phase": "您的耳念珠菌感染已经进入急性发病期，",
@@ -88,5 +91,10 @@
   
   "dna_segment_1.description": "§1来自T6SS的膜复合体",
   "dna_segment_2.description": "§d来自T6SS的尖刺结构",
-  "dna_segment_3.description": "§a来自T6SS的楔形结构"
+  "dna_segment_3.description": "§a来自T6SS的楔形结构",
+  "entity.bio-resistance.rat": "老鼠",
+  "item.bio-resistance.raw_rat_meat": "生老鼠肉",
+  "item.bio-resistance.cooked_rat_meat": "熟老鼠肉",
+  "item.bio-resistance.rat_spawn_egg": "老鼠刷怪蛋",
+  "plague.infected": "你感染了鼠疫！"
 }

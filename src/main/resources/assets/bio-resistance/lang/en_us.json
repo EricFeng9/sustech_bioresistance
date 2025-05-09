@@ -45,8 +45,11 @@
   "tetanus.acute_phase.incurable": "incurable",
   
   "plague.description": "Obtained after contact with infected sources, effect is Weakness II 7min, Nausea I 7min. After countdown ends, player will die immediately. Can be cured with Streptomycin or Anti-drug Resistant Microbial Capsules",
-  "plague.acute_phase": "Your plague infection has entered acute phase, ",
-  "plague.acute_phase.incurable": "incurable",
+  "plague.acute_phase": "Your plague symptoms have worsened!",
+  "plague.acute_phase.incurable": "You need treatment immediately!",
+  "plague.cured.by.streptomycin": "Streptomycin has cured your plague",
+  "plague.not.cured.by.streptomycin": "Streptomycin failed to cure your plague, try again",
+  "plague.cured.by.capsules": "Anti-drug resistant microbial capsules have cured your plague",
   
   "candida.description": "Obtained after contact with infected sources, effect is Slowness II 6min, Hunger II 6min. After countdown ends, player will die immediately. Can be cured with Antifungal Drug or Anti-drug Resistant Microbial Capsules",
   "candida.acute_phase": "Your candida infection has entered acute phase, ",
@@ -87,5 +90,9 @@
   
   "dna_segment_1.description": "§1Membrane complex component from T6SS ",
   "dna_segment_2.description": "§dSpike structure from T6SS ",
-  "dna_segment_3.description": "§aWedge component from T6SS "
+  "dna_segment_3.description": "§aWedge component from T6SS ",
+  "entity.bio-resistance.rat": "Rat",
+  "item.bio-resistance.raw_rat_meat": "Raw Rat Meat",
+  "item.bio-resistance.cooked_rat_meat": "Cooked Rat Meat",
+  "item.bio-resistance.rat_spawn_egg": "Rat Spawn Egg"
 }
