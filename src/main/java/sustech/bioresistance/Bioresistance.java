@@ -32,7 +32,7 @@ public class Bioresistance implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
+    
     public static final EntityType<RatEntity> RAT = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier("examplemod", "rat"),
@@ -44,7 +44,7 @@ public class Bioresistance implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+        
         ModBlocks.initialize();
         ModItems.initialize();
         ModItemGroups.initialize();
@@ -62,7 +62,7 @@ public class Bioresistance implements ModInitializer {
             (dispatcher, registryAccess, environment) -> 
                 sustech.bioresistance.commands.BioresistanceCommands.register(dispatcher, registryAccess, environment)
         );
-
+        LOGGER.info("你好")；
         LOGGER.info("Hello Fabric world!");
     }
 }
