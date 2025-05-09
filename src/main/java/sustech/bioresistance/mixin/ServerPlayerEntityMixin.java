@@ -6,7 +6,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import sustech.bioresistance.Bioresistance;
+import sustech.bioresistance.data.CandidaResistanceManager;
+import sustech.bioresistance.data.PlagueResistanceManager;
 import sustech.bioresistance.data.TetanusResistanceManager;
+import sustech.bioresistance.network.ResistanceSync;
 
 @Mixin(ServerPlayerEntity.class)
 public class ServerPlayerEntityMixin {
@@ -18,11 +21,22 @@ public class ServerPlayerEntityMixin {
         
         // 确保更新耐药性缓存数据
         try {
-            TetanusResistanceManager manager = TetanusResistanceManager.getManager(player.getServer());
-            Bioresistance.LOGGER.info("玩家 {} 加入游戏，已更新耐药性数据缓存：{}", 
-                                       player.getName().getString(), manager.getResistancePercentage());
+            // 获取各种耐药性管理器
+            TetanusResistanceManager tetanusManager = TetanusResistanceManager.getManager(player.getServer());
+            PlagueResistanceManager plagueManager = PlagueResistanceManager.getManager(player.getServer());
+            CandidaResistanceManager candidaManager = CandidaResistanceManager.getManager(player.getServer());
+            
+            // 向玩家同步所有耐药性数据
+            ResistanceSync.syncAllResistancesToPlayer(
+                player,
+                tetanusManager.getResistance(),
+                plagueManager.getResistance(),
+                candidaManager.getResistance()
+            );
+            
+            Bioresistance.LOGGER.info("玩家 {} 加入游戏，已同步所有耐药性数据", player.getName().getString());
         } catch (Exception e) {
-            Bioresistance.LOGGER.error("玩家加入时更新耐药性缓存失败：", e);
+            Bioresistance.LOGGER.error("玩家加入时同步耐药性数据失败：", e);
         }
     }
 } 

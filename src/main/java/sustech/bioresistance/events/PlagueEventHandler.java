@@ -14,6 +14,7 @@ import net.minecraft.util.TypedActionResult;
 import sustech.bioresistance.Bioresistance;
 import sustech.bioresistance.ModItems;
 import sustech.bioresistance.ModStatusEffects;
+import sustech.bioresistance.data.PlagueResistanceManager;
 
 /**
  * 鼠疫事件处理器
@@ -24,9 +25,6 @@ public class PlagueEventHandler {
     // 鼠疫效果持续时间 (5分钟 = 300秒 = 6000刻)
     public static final int PLAGUE_DURATION = 6000;
     
-    // 鼠疫耶尔森菌对链霉素的耐药性，0-1之间，默认0.2
-    private static double plagueResistance = 0.2;
-    
     // 获取鼠疫状态效果实例
     private static final StatusEffect PLAGUE_EFFECT = ModStatusEffects.PLAGUE;
     
@@ -34,8 +32,10 @@ public class PlagueEventHandler {
      * 获取当前鼠疫耶尔森菌的耐药性
      * @return 0-1之间的耐药性数值
      */
-    public static double getPlagueResistance() {
-        return plagueResistance;
+    public static double getPlagueResistance(MinecraftServer server) {
+        if (server == null) return 0.0;
+        PlagueResistanceManager manager = PlagueResistanceManager.getManager(server);
+        return manager.getResistance();
     }
     
     /**
@@ -45,8 +45,19 @@ public class PlagueEventHandler {
      */
     public static boolean setPlagueResistance(double resistance) {
         if (resistance >= 0.0 && resistance <= 1.0) {
-            plagueResistance = resistance;
-            return true;
+            try {
+                // 通过命令参数传入的值，通常是在命令执行时调用
+                // 此时已有CommandContext上下文，可以通过context.getSource().getServer()获取服务器
+                // 所以此处设置的耐药性值将在调用点通过PlagueResistanceManager直接设置
+                
+                // 将值限制在0.0-1.0之间
+                float safeValue = (float)Math.max(0.0, Math.min(1.0, resistance));
+                Bioresistance.LOGGER.info("将鼠疫耶尔森菌耐药性设置为 {}", String.format("%.1f%%", safeValue * 100));
+                return true;
+            } catch (Exception e) {
+                Bioresistance.LOGGER.error("设置鼠疫耶尔森菌耐药性失败: {}", e.getMessage());
+                return false;
+            }
         }
         return false;
     }
@@ -67,33 +78,36 @@ public class PlagueEventHandler {
                     if (itemStack.getItem() == ModItems.STREPTOMYCIN) {
                         // 在服务端处理
                         if (!world.isClient()) {
-                            // 计算治疗成功率
-                            double successRate = 1.0 - plagueResistance;
-                            
-                            // 判断是否治疗成功
-                            if (world.random.nextDouble() < successRate) {
-                                // 治疗成功
-                                player.removeStatusEffect(PLAGUE_EFFECT);
-                                player.sendMessage(Text.translatable("streptomycin.treatment.success"), true);
-                                
-                                Bioresistance.LOGGER.info("玩家 {} 使用链霉素治愈了鼠疫", player.getName().getString());
-                                
-                                // 每次成功治疗后，细菌耐药性略微增加(5%)
-                                setPlagueResistance(Math.min(1.0, plagueResistance + 0.05));
-                            } else {
-                                // 治疗失败
-                                player.sendMessage(Text.translatable("streptomycin.treatment.failed"), true);
-                                
-                                // 失败后耐药性大幅增加(10%)
-                                setPlagueResistance(Math.min(1.0, plagueResistance + 0.1));
-                            }
-                            
-                            // 通知玩家当前耐药性
-                            MinecraftServer server = player.getServer();
+                            MinecraftServer server = world.getServer();
                             if (server != null) {
+                                PlagueResistanceManager manager = PlagueResistanceManager.getManager(server);
+                                
+                                // 计算治疗成功率
+                                double successRate = 1.0 - manager.getResistance();
+                                
+                                // 判断是否治疗成功
+                                if (world.random.nextDouble() < successRate) {
+                                    // 治疗成功
+                                    player.removeStatusEffect(PLAGUE_EFFECT);
+                                    player.sendMessage(Text.translatable("streptomycin.treatment.success"), true);
+                                    
+                                    Bioresistance.LOGGER.info("玩家 {} 使用链霉素治愈了鼠疫", player.getName().getString());
+                                    
+                                    // 每次成功治疗后，细菌耐药性略微增加(0.1%)
+                                    manager.increaseResistance();
+                                } else {
+                                    // 治疗失败
+                                    player.sendMessage(Text.translatable("streptomycin.treatment.failed"), true);
+                                    
+                                    // 失败后耐药性增加两次(0.2%)
+                                    manager.increaseResistance();
+                                    manager.increaseResistance();
+                                }
+                                
+                                // 通知玩家当前耐药性
                                 player.sendMessage(
                                     Text.translatable("streptomycin.resistance")
-                                        .append(String.format("%.1f%%", plagueResistance * 100)), 
+                                        .append(manager.getResistancePercentage()), 
                                     false
                                 );
                             }

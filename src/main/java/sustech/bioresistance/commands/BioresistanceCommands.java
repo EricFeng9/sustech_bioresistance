@@ -28,6 +28,7 @@ import sustech.bioresistance.entities.RatEntity;
 import sustech.bioresistance.events.PlagueEventHandler;
 import sustech.bioresistance.events.TetanusEventHandler;
 import net.minecraft.registry.Registries;
+import net.minecraft.server.MinecraftServer;
 
 /**
  * 生物抗性模组命令系统
@@ -87,6 +88,15 @@ public class BioresistanceCommands {
                                 "commands.bioresistance.tetanus_resistance.set.success." + langKey, 
                                 String.format("%.1f%%", value * 100)
                             ), true);
+                            
+                            // 直接通过服务器实例更新耐药性数据
+                            MinecraftServer server = source.getServer();
+                            if (server != null) {
+                                sustech.bioresistance.data.TetanusResistanceManager manager = 
+                                    sustech.bioresistance.data.TetanusResistanceManager.getManager(server);
+                                manager.setResistance((float)value);
+                            }
+                            
                             return 1;
                         } else {
                             source.sendError(Text.translatable("commands.bioresistance.tetanus_resistance.set.error." + langKey));
@@ -110,6 +120,15 @@ public class BioresistanceCommands {
                                 "commands.bioresistance.plague_resistance.set.success." + langKey, 
                                 String.format("%.1f%%", value * 100)
                             ), true);
+                            
+                            // 直接通过服务器实例更新耐药性数据
+                            MinecraftServer server = source.getServer();
+                            if (server != null) {
+                                sustech.bioresistance.data.PlagueResistanceManager manager = 
+                                    sustech.bioresistance.data.PlagueResistanceManager.getManager(server);
+                                manager.setResistance((float)value);
+                            }
+                            
                             return 1;
                         } else {
                             source.sendError(Text.translatable("commands.bioresistance.plague_resistance.set.error." + langKey));
