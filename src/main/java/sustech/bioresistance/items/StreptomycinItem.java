@@ -46,7 +46,7 @@ public class StreptomycinItem extends Item {
                 PlagueResistanceManager manager = PlagueResistanceManager.getManager(server);
                 tooltip.add(
                     Text.translatable("streptomycin.resistance")
-                        .append(Text.literal(String.format("%.1f%%", manager.getResistance() * 100)).formatted(Formatting.RED))
+                        .append(Text.literal(manager.getResistancePercentage()).formatted(Formatting.RED))
                 );
             }
         } else {
@@ -55,22 +55,6 @@ public class StreptomycinItem extends Item {
                 Text.translatable("streptomycin.resistance")
                     .append(Text.literal(PlagueResistanceManager.getCachedResistancePercentage()).formatted(Formatting.RED))
             );
-        }
-    }
-    
-    /**
-     * 使用后增加耐药性
-     * 每次使用增加0.1%的耐药性
-     */
-    public static void increaseResistance(World world) {
-        if (world.isClient()) return;
-        
-        MinecraftServer server = world.getServer();
-        if (server != null) {
-            PlagueResistanceManager manager = PlagueResistanceManager.getManager(server);
-            float currentResistance = manager.getResistance();
-            // 每次使用增加0.001的耐药性(相当于0.1%)
-            manager.setResistance(currentResistance + 0.001f);
         }
     }
 } 

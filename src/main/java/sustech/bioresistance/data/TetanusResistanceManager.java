@@ -5,6 +5,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.PersistentState;
 import net.minecraft.world.World;
 import sustech.bioresistance.Bioresistance;
+import sustech.bioresistance.network.ResistanceSync;
 
 /**
  * 破伤风杆菌耐药性数据管理器
@@ -21,6 +22,9 @@ public class TetanusResistanceManager extends PersistentState {
     
     // 用于客户端显示的静态缓存
     private static float cachedResistance = 0.0f;
+    
+    // 对应的服务器实例，用于网络同步
+    private MinecraftServer server;
     
     /**
      * 创建一个新的耐药性管理器实例
@@ -65,6 +69,11 @@ public class TetanusResistanceManager extends PersistentState {
             // 标记数据已修改
             this.markDirty();
             
+            // 向所有在线玩家同步耐药性数据
+            if (server != null) {
+                ResistanceSync.syncTetanusResistanceToAll(server, this.resistance);
+            }
+            
             Bioresistance.LOGGER.info("破伤风杆菌耐药性已通过命令设置为 {}", getResistancePercentage());
             return true;
         } catch (Exception e) {
@@ -94,6 +103,11 @@ public class TetanusResistanceManager extends PersistentState {
         // 更新缓存值
         updateCache();
         
+        // 向所有在线玩家同步耐药性数据
+        if (server != null) {
+            ResistanceSync.syncTetanusResistanceToAll(server, this.resistance);
+        }
+        
         this.markDirty(); // 标记数据已修改，需要保存
         Bioresistance.LOGGER.info("破伤风杆菌耐药性增加到 {}", getResistancePercentage());
     }
@@ -113,6 +127,16 @@ public class TetanusResistanceManager extends PersistentState {
     private void updateCache() {
         cachedResistance = resistance;
         Bioresistance.LOGGER.debug("已更新耐药性缓存到 {}", String.format("%.1f%%", cachedResistance * 100));
+    }
+    
+    /**
+     * 更新客户端缓存值
+     * 由网络同步包调用
+     * @param value 从服务端接收到的耐药性值
+     */
+    public static void updateClientCache(float value) {
+        cachedResistance = value;
+        Bioresistance.LOGGER.debug("已从服务器更新破伤风杆菌耐药性缓存: {}", String.format("%.1f%%", cachedResistance * 100));
     }
     
     /**
@@ -154,6 +178,8 @@ public class TetanusResistanceManager extends PersistentState {
         // 从服务器的主世界持久状态管理器获取数据
         TetanusResistanceManager manager = server.getWorld(World.OVERWORLD).getPersistentStateManager()
             .getOrCreate(TYPE, "tetanus_resistance");
+        // 设置服务器实例，用于网络同步
+        manager.server = server;
         // 更新缓存值
         cachedResistance = manager.resistance;
         Bioresistance.LOGGER.debug("从服务器加载耐药性并更新缓存: {}", String.format("%.1f%%", cachedResistance * 100));
