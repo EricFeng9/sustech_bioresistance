@@ -132,7 +132,8 @@ public class DoctorEntity extends MerchantEntity implements GeoEntity {
         
         if (!this.getWorld().isClient) {
             this.setCustomer(player);
-            this.sendOffers(player, this.getDisplayName(), 1);
+            // 使用本地化的交易界面标题
+            this.sendOffers(player, net.minecraft.text.Text.translatable("doctor.trade"), 1);
         }
         
         return ActionResult.success(this.getWorld().isClient);
@@ -260,9 +261,36 @@ public class DoctorEntity extends MerchantEntity implements GeoEntity {
     
     // 查找诊所内部的合适生成位置
     private static BlockPos findSuitableSpawnPos(ServerWorld world, BlockPos clinicCenter) {
-        // 简单实现，使用诊所中心位置作为生成点
-        // 在诊所中心点的基础上稍微调整一下位置
-        return clinicCenter.up();
+        // 尝试在诊所中心点附近找一个合适的位置
+        // 首先尝试中心点上方1格
+        BlockPos centerUp = clinicCenter.up();
+        if (isValidSpawnPos(world, centerUp)) {
+            return centerUp;
+        }
+        
+        // 然后在中心点周围3x3x3的范围内搜索
+        for (int x = -1; x <= 1; x++) {
+            for (int z = -1; z <= 1; z++) {
+                for (int y = 0; y <= 2; y++) {
+                    BlockPos pos = clinicCenter.add(x, y, z);
+                    if (isValidSpawnPos(world, pos)) {
+                        return pos;
+                    }
+                }
+            }
+        }
+        
+        // 如果没找到合适的位置，就用中心点（可能会导致医生卡在方块里）
+        Bioresistance.LOGGER.warn("无法在诊所 [" + clinicCenter.getX() + ", " + 
+                clinicCenter.getY() + ", " + clinicCenter.getZ() + "] 中找到适合医生生成的位置");
+        return clinicCenter;
+    }
+    
+    // 检查生成位置是否合法
+    private static boolean isValidSpawnPos(ServerWorld world, BlockPos pos) {
+        // 检查医生的生成位置（需要两格空间）
+        return world.isAir(pos) && world.isAir(pos.up()) && 
+               !world.isAir(pos.down()) && world.getBlockState(pos.down()).isSolid();
     }
 
     @Nullable
