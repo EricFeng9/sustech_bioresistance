@@ -203,7 +203,7 @@
 
   初始耐药性为0%，每次使用甲硝唑增加0.1%的耐药性，最高可达100%。
   
-  <img src=".\images\image-20250515170626910.png" alt="image-20250515170626910" width="300" align="left" />
+  <img src=".\images\image-20250515170626910.png" alt="image-20250515170626910" width="300"/>
 
 ### 耳念珠菌感染 (*Candida Infection*) ![耳念珠菌感染](images/effects/exhaustion.png)
 - **感染途径**：
@@ -213,7 +213,7 @@
 
   效果为虚弱、缓慢，持续3分钟，倒计时结束后先触发反胃效果20秒，然后直接死亡。
   
-  <img src=".\images\image-20250515170919484.png" alt="image-20250515170919484" width="300" align = "left" />
+  <img src=".\images\image-20250515170919484.png" alt="image-20250515170919484" width="300"/>
 - **治疗方式**：
 
   使用抗真菌药物有(100%-耐药性)的几率治愈，或抗耐药性微生物胶囊100%治愈。
@@ -221,7 +221,7 @@
 
   初始耐药性为0%，每次使用抗真菌药物增加0.1%耐药性，最高可达100%。
   
-  <img src=".\images\image-20250515170746136.png" alt="image-20250515170746136" width="300" align="left" />
+  <img src=".\images\image-20250515170746136.png" alt="image-20250515170746136" width="300"    />
   
   
 
@@ -247,7 +247,7 @@
   提取抗生素分泌菌提取液，用于制作抗生素药物。
 
 ### 质粒提取器 (*Plasmid Extractor*) <img src="images/items/PlasmidExtractor.png" width="24">
-<img src=".\images\image-20250515172459998.png" alt="image-20250515172459998" width="300" align = left />
+<img src=".\images\image-20250515172459998.png" alt="image-20250515172459998" width="300"     />
 
 
 
@@ -262,7 +262,7 @@
   右侧3个槽位放入3个不同的DNA片段，中间放入大肠杆菌培养基，点击启动按钮合成装配T6SS的大肠杆菌培养基。
 
 ### 超净工作台 (*Clean Bench*) <img src="images/items/CleanBench.png" width="24">
-<img src=".\images\image-20250515172529435.png" alt="image-20250515172529435" width="300" align="left"/>
+<img src=".\images\image-20250515172529435.png" alt="image-20250515172529435" width="300"   />
 
 
 
@@ -278,7 +278,7 @@
 
 ### 灭菌锅 (*Autoclave*)<img src="images/items/Autoclave.png" width="24">
 
-<img src=".\images\image-20250515172606129.png" alt="image-20250515172606129" width="300" align = "left"/>
+<img src=".\images\image-20250515172606129.png" alt="image-20250515172606129" width="300"    />
 
 
 
@@ -291,7 +291,7 @@
   放入培养基、水桶和**燃料(原版的任意燃料都可以)**，启动后可获得已消毒的培养基。
 
 ### 诊所 (*Clinic*)
-<img src=".\images\image-20250515164322604.png" alt="image-20250515164322604" width="300" align="left" />
+<img src=".\images\image-20250515164322604.png" alt="image-20250515164322604" width="300"    />
 
 
 
@@ -331,7 +331,7 @@
 
   *Iron Nugget + Glass = Syringe (Inventory/Crafting Table)*
 
-  <img src="images/recipes/1-1.png" width="300" align="left">
+  <img src="images/recipes/1-1.png" width="300"   >
 
   
 
@@ -371,7 +371,7 @@
 
   *slime_ball + potion(water)  = hydrogel(Crafting Table)*
 
-  <img src=".\images\image-20250515174126586.png" alt="image-20250515174126586" width="300" align="left"/>
+  <img src=".\images\image-20250515174126586.png" alt="image-20250515174126586" width="300"   />
 
   
 
@@ -381,7 +381,7 @@
 
   *Medium + Water Bucket = Medium Sterilized (Autoclave)*
 
-  <img src="images/recipes/1-6.png" width="300" align="left">
+  <img src="images/recipes/1-6.png" width="300"   >
   
   
 
@@ -415,7 +415,7 @@
 
   *E_coli_t6ss_medium + Hydrogel = Anti_drug_resistant_microbial_ointment*
 
-  <img src="images/recipes/3-2.png" width="300" align="left">
+  <img src="images/recipes/3-2.png" width="300"   >
 
   
 
@@ -423,7 +423,7 @@
 
   *E_coli_t6ss_medium + Empty_capsule = Anti_drug_resistant_microbial_capsules*
 
-  <img src="images/recipes/3-3.png" width="300" align="left">
+  <img src="images/recipes/3-3.png" width="300"   >
 
   
 
@@ -431,7 +431,7 @@
 
   *Medium_sterilized + E_coli_t6ss_medium = E_coli_t6ss_medium (Species Inheritance)*
 
-  <img src="images/recipes/3-4.png" width="300" align="left">
+  <img src="images/recipes/3-4.png" width="300"   >
 
   
 
@@ -439,7 +439,7 @@
 
   *Medium_sterilized + Melon = Acidovorax_citrulli_medium*
 
-  <img src="images/recipes/3-5.png" width="300" align="left">
+  <img src="images/recipes/3-5.png" width="300"   >
 
   
 
@@ -447,7 +447,7 @@
 
   *Medium_sterilized + Acidovorax_citrulli_medium = Acidovorax_citrulli_medium (Species Inheritance)*
 
-  <img src="images/recipes/3-6.png" width="300" align="left">
+  <img src="images/recipes/3-6.png" width="300"   >
 
   
 
@@ -455,7 +455,7 @@
 
   *Medium_sterilized + E_coli_extract = E_coli_medium*
 
-  <img src="images/recipes/3-7.png" width="300" align="left">
+  <img src="images/recipes/3-7.png" width="300"   >
 
   
 
@@ -463,7 +463,7 @@
 
   *Medium_sterilized + E_coli_medium = E_coli_medium (Species Inheritance)*
 
-  <img src="images/recipes/3-8.png" width="300" align="left">
+  <img src="images/recipes/3-8.png" width="300"   >
   
   
 
@@ -473,7 +473,7 @@
 
   *Acidovorax_citrulli_medium → 3 DNA Segments (DNA_segment_1, DNA_segment_2, DNA_segment_3)*
 
-  <img src="images/recipes/4-1.png" width="300" align="left">
+  <img src="images/recipes/4-1.png" width="300"   >
 
   
 
@@ -481,7 +481,7 @@
 
   *3 DNA Segments + E_coli_medium → E_coli_t6ss_medium*
 
-  <img src="images/recipes/4-2.png" width="300" align="left">
+  <img src="images/recipes/4-2.png" width="300"   >
   
   
 
@@ -527,11 +527,11 @@
 
 下载以下文件
 
-<img src=".\images\image-20250515183005951.png" alt="image-20250515182918831" width=300px  align="left"/>
+<img src=".\images\image-20250515183005951.png" alt="image-20250515182918831" width=300px    />
 
 前往[geckolib-forge-1.20.4-4.4.4.jar]([MOD下载 - GeckoLib - MC百科|最大的Minecraft中文MOD百科](https://www.mcmod.cn/download/3232.html))下载以下文件
 
-<img src=".\images\image-20250515183108734.png" alt="image-20250515183108734" width=300px  align="left" />
+<img src=".\images\image-20250515183108734.png" alt="image-20250515183108734" width=300px     />
 
 将上述文件放入`.minecraft\mods\`（`或者游戏版本根目录\mods\`）文件夹下，启动游戏即可
 
