@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.10-SNAPSHOT'
+	id 'fabric-loom' version '1.10.5'
 	id 'maven-publish'
 }
 
@@ -20,10 +20,6 @@ repositories {
 	maven {
         name = 'GeckoLib'
         url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
-        content {
-                includeGroupByRegex("software\\.bernie.*")
-                includeGroup("com.eliotlash.mclib")
-        }
     }
 }
 
@@ -44,22 +40,14 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
+	// Fabric API
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	// GeckoLib依赖 - 用于所有环境
+	// GeckoLib依赖 - 单一明确的依赖
 	modImplementation "software.bernie.geckolib:geckolib-fabric-1.20.4:4.4.4"
     
-    // 为客户端和服务端都添加GeckoLib依赖
-    modImplementation(fabricApi.module("fabric-api-base", project.fabric_version))
-    modImplementation(fabricApi.module("fabric-networking-api-v1", project.fabric_version))
-
-    // 客户端特定依赖
-    modClientImplementation(fabricApi.module("fabric-rendering-v1", project.fabric_version))
-    modClientImplementation(fabricApi.module("fabric-rendering-data-attachment-v1", project.fabric_version))
-	
-	// 辅助库
-    implementation "com.eliotlash.mclib:mclib:20"
+    // 辅助库 - 修改为modImplementation
+    modImplementation "com.eliotlash.mclib:mclib:20"
 }
 
 processResources {
