@@ -524,10 +524,11 @@
 
 - Fabric API版本是 0.97.2+1.20.4
 - 前置mod：[geckolib-forge-1.20.4-4.4.4.jar]([MOD下载 - GeckoLib - MC百科|最大的Minecraft中文MOD百科](https://www.mcmod.cn/download/3232.html))
+- 推荐使用启动器：[PCL 最新正式版永久下载丨龙腾猫跃丨爱发电](https://afdian.com/p/0164034c016c11ebafcb52540025c377)
 
 安装步骤：
 
-[Release 测试版1.0.0发布 · EricFeng9/sustech_bioresistance](https://github.com/EricFeng9/sustech_bioresistance/releases/tag/1.0.0)
+前往[Release 测试版1.0.0发布 · EricFeng9/sustech_bioresistance](https://github.com/EricFeng9/sustech_bioresistance/releases/tag/1.0.0)
 
 下载以下文件
 
@@ -545,7 +546,7 @@
 
 ## 版权声明
 
-本作品作者为2025年IGEM队伍Sustech-BIo的成员，转载前。
+本作品作者为2025年IGEM队伍Sustech-BIo的成员。
 
 主要制作人员如下：
 
@@ -554,6 +555,7 @@
 * 陈瑶   (2022级 生物系) -美工
 * 杨天赐  (2023级 生物医学工程系) -策划
 * 宿恒玮 （2023级 生物系) -Sustech-Bio队长
+* Sustech-Bio团队其他成员
 
 <img src=".\images\license.png" alt="license" style="zoom:100%;" align ="left" />
 
