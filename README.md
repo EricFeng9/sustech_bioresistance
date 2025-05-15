@@ -101,7 +101,7 @@
 
 <p align="left">
 
-<img src=".\images\image-20250515171900909.png" alt="image-20250515171900909" width="300" align = left />
+<img src=".\images\image-20250515171900909.png" alt="image-20250515171900909" width="300" />
 
 </p>
 
