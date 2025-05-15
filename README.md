@@ -229,7 +229,7 @@
 
 ### 菌体提取器 (*Bacterial Extractor*) <img src="images/items/BacterialExtractor.png" width="24">
 
-<img src=".\images\image-20250515172419472.png" alt="image-20250515172419472" width="300" align=left />
+<img src=".\images\image-20250515172419472.png" alt="image-20250515172419472" width="300" />
 
 
 
