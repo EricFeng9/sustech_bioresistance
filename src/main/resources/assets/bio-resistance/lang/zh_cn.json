@@ -97,6 +97,7 @@
   "item.bio-resistance.raw_rat_meat": "生老鼠肉",
   "item.bio-resistance.cooked_rat_meat": "熟老鼠肉",
   "item.bio-resistance.rat_spawn_egg": "老鼠刷怪蛋",
+  "item.bio-resistance.kelp_bucket": "海带桶",
   "plague.infected": "你感染了鼠疫！",
   "candidiasis.description": "当过度劳累或患有鼠疫、破伤风时有小概率获得，效果为虚弱I、缓慢I持续3分钟，随后会进入急性期产生反胃效果20秒，反胃效果结束后将直接死亡",
   "candidiasis.acute_phase": "你的耳念珠菌感染已进入急性期！",
