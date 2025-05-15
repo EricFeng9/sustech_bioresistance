@@ -4,15 +4,25 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.render.entity.model.EntityModelLayers;
+import net.minecraft.client.render.entity.model.PigEntityModel;
 import net.minecraft.util.Identifier;
+import sustech.bioresistance.entities.RatEntity;
 import sustech.bioresistance.gui.Autoclave_Screen;
 import sustech.bioresistance.gui.BacterialExtractor_Screen;
 import sustech.bioresistance.gui.Bio_Fridge_Screen;
 import sustech.bioresistance.gui.CleanTable_Screen;
 import sustech.bioresistance.gui.PlasmidExtractor_Screen;
+import sustech.bioresistance.entities.renderer.RatEntityRenderer;
+import sustech.bioresistance.network.ResistanceSyncClient;
 
-
+/**
+ * 客户端初始化类，只在客户端环境中运行
+ */
 public class BioresistanceClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
@@ -82,5 +92,11 @@ public class BioresistanceClient implements ClientModInitializer {
 				ModFluids.FLOWING_SOIL_EXTRACT,
 				RenderLayer.getTranslucent()
 		);
+		
+		// 注册老鼠实体的渲染器
+		EntityRendererRegistry.register(ModEntities.RAT, RatEntityRenderer::new);
+		
+		// 初始化耐药性同步接收器
+		ResistanceSyncClient.registerClientReceivers();
 	}
 }

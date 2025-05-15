@@ -17,14 +17,18 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import sustech.bioresistance.complexBlocks.Bio_Fridge;
+import sustech.bioresistance.entities.RatEntity;
+import sustech.bioresistance.events.PlagueEventHandler;
 import sustech.bioresistance.events.TetanusEventHandler;
 
-
+// 保留GeckoLib导入，但可能在build.gradle中指定其为compileOnly依赖
+import software.bernie.geckolib.GeckoLib;
 
 public class Bioresistance implements ModInitializer {
 	public static final String MOD_ID = "bio-resistance";
@@ -33,18 +37,11 @@ public class Bioresistance implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-    public static final EntityType<RatEntity> RAT = Registry.register(
-            Registries.ENTITY_TYPE,
-            new Identifier("examplemod", "rat"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, RatEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
-                    .build()
-    );
-
-
 	@Override
 	public void onInitialize() {
-
+        // 初始化GeckoLib
+        GeckoLib.initialize();
+        
         ModBlocks.initialize();
         ModItems.initialize();
         ModItemGroups.initialize();
@@ -53,16 +50,20 @@ public class Bioresistance implements ModInitializer {
         ModFluids.initialize();
         ModScreenHandlers.registerAll();
         ModStatusEffects.initialize();
-        FabricDefaultAttributeRegistry.register(RAT, RatEntity.createRatAttributes());
+        ModEntities.registerModEntities();
+        FabricDefaultAttributeRegistry.register(ModEntities.RAT, RatEntity.createRatAttributes());
+        // 添加老鼠生成
+        ModWorldGen.addRatSpawn();
         // 注册破伤风事件处理器
         TetanusEventHandler.register();
+        // 注册鼠疫事件处理器
+        PlagueEventHandler.register();
         
         // 注册模组命令
         CommandRegistrationCallback.EVENT.register(
             (dispatcher, registryAccess, environment) -> 
                 sustech.bioresistance.commands.BioresistanceCommands.register(dispatcher, registryAccess, environment)
         );
-
-        LOGGER.info("Hello Fabric world!");
+        LOGGER.info("Bio-resistance mod initialized!");
     }
 }

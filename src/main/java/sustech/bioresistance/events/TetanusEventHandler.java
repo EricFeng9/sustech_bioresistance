@@ -2,20 +2,22 @@ package sustech.bioresistance.events;
 
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.TypedActionResult;
 import sustech.bioresistance.Bioresistance;
 import sustech.bioresistance.ModItems;
 import sustech.bioresistance.ModStatusEffects;
-import net.minecraft.text.Text;
 
 /**
  * 破伤风事件处理器
@@ -25,6 +27,33 @@ public class TetanusEventHandler {
 
     // 破伤风效果持续时间 (5分钟 = 300秒 = 6000刻)
     private static final int TETANUS_DURATION = 6000;
+    
+    // 破伤风杆菌对甲硝唑的耐药性，0-1之间，默认0.2
+    private static double tetanusResistance = 0.2;
+    
+    // 获取破伤风状态效果实例
+    private static final StatusEffect TETANUS_EFFECT = (StatusEffect)ModStatusEffects.TETANUS;
+    
+    /**
+     * 获取当前破伤风杆菌的耐药性
+     * @return 0-1之间的耐药性数值
+     */
+    public static double getTetanusResistance() {
+        return tetanusResistance;
+    }
+    
+    /**
+     * 设置破伤风杆菌的耐药性
+     * @param resistance 0-1之间的耐药性数值
+     * @return 是否设置成功
+     */
+    public static boolean setTetanusResistance(double resistance) {
+        if (resistance >= 0.0 && resistance <= 1.0) {
+            tetanusResistance = resistance;
+            return true;
+        }
+        return false;
+    }
     
     /**
      * 注册事件处理器
@@ -48,7 +77,7 @@ public class TetanusEventHandler {
             // 检查是否使用了治疗物品
             if (isTreatmentItem(itemStack.getItem()) && !world.isClient()) {
                 // 如果玩家有破伤风效果
-                if (player.hasStatusEffect(ModStatusEffects.TETANUS)) {
+                if (player.hasStatusEffect(TETANUS_EFFECT)) {
                     // 区分不同的治疗物品
                     if (itemStack.getItem() == ModItems.METRONIDAZOLE) {
                         // 获取耐药性管理器
@@ -73,8 +102,7 @@ public class TetanusEventHandler {
                             }
                         } else {
                             // 治疗成功，移除破伤风效果
-                            player.removeStatusEffect(ModStatusEffects.TETANUS);
-                            
+                            player.removeStatusEffect(TETANUS_EFFECT);
                             
                             Bioresistance.LOGGER.info("玩家 {} 使用甲硝唑成功治愈了破伤风", player.getName().getString());
                             
@@ -88,8 +116,7 @@ public class TetanusEventHandler {
                         }
                     } else if (itemStack.getItem() == ModItems.ANTI_DRUG_RESISTANT_MICROBIAL_CAPSULES) {
                         // 抗耐药性微生物胶囊，总是成功
-                        player.removeStatusEffect(ModStatusEffects.TETANUS);
-                        
+                        player.removeStatusEffect(TETANUS_EFFECT);
                         
                         Bioresistance.LOGGER.info("玩家 {} 使用抗耐药性微生物胶囊治愈了破伤风", player.getName().getString());
                         
@@ -239,7 +266,7 @@ public class TetanusEventHandler {
     private static void applyTetanusEffect(net.minecraft.entity.player.PlayerEntity player) {
         // 添加破伤风效果
         player.addStatusEffect(new StatusEffectInstance(
-            ModStatusEffects.TETANUS, // 破伤风效果
+            TETANUS_EFFECT, // 破伤风效果
             TETANUS_DURATION,         // 持续时间 5分钟
             0,                        // 效果等级 0 (I级)
             false,                    // 不显示粒子
