@@ -17,6 +17,7 @@ import sustech.bioresistance.gui.BacterialExtractor_Screen;
 import sustech.bioresistance.gui.Bio_Fridge_Screen;
 import sustech.bioresistance.gui.CleanTable_Screen;
 import sustech.bioresistance.gui.PlasmidExtractor_Screen;
+import sustech.bioresistance.entities.renderer.DoctorRenderer;
 import sustech.bioresistance.entities.renderer.RatEntityRenderer;
 import sustech.bioresistance.network.ResistanceSyncClient;
 
@@ -95,6 +96,9 @@ public class BioresistanceClient implements ClientModInitializer {
 		
 		// 注册老鼠实体的渲染器
 		EntityRendererRegistry.register(ModEntities.RAT, RatEntityRenderer::new);
+		
+		// 注册医生实体的渲染器
+		EntityRendererRegistry.register(ModEntities.DOCTOR, DoctorRenderer::new);
 		
 		// 初始化耐药性同步接收器
 		ResistanceSyncClient.registerClientReceivers();

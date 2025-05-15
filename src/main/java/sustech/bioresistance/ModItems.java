@@ -181,6 +181,13 @@ public class ModItems {
             RAT_SPAWN_EGG_KEY
     );
     
+    //医生生成蛋
+    public static final RegistryKey<Item> DOCTOR_SPAWN_EGG_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "doctor_spawn_egg"));
+    public static final Item DOCTOR_SPAWN_EGG = register(
+            new net.minecraft.item.SpawnEggItem(ModEntities.DOCTOR, 0xFFFFFF, 0x228B22, new Item.Settings()),
+            DOCTOR_SPAWN_EGG_KEY
+    );
+    
     //海带桶
     public static final RegistryKey<Item> KELP_BUCKET_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "kelp_bucket"));
     public static final Item KELP_BUCKET = register(
@@ -214,6 +221,7 @@ public class ModItems {
             itemGroup.add(RAW_RAT_MEAT);
             itemGroup.add(COOKED_RAT_MEAT);
             itemGroup.add(RAT_SPAWN_EGG);
+            itemGroup.add(DOCTOR_SPAWN_EGG);
             itemGroup.add(KELP_BUCKET);
         });
     }

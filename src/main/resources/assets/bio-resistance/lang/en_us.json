@@ -98,5 +98,8 @@
   "item.bio-resistance.cooked_rat_meat": "Cooked Rat Meat",
   "item.bio-resistance.rat_spawn_egg": "Rat Spawn Egg",
   "item.bio-resistance.kelp_bucket": "Kelp Bucket",
-  "anti_drug_resistant_microbial_ointment.treatment.success": "Treatment successful! Candida infection has been cleared"
+  "anti_drug_resistant_microbial_ointment.treatment.success": "Treatment successful! Candida infection has been cleared",
+  "item.bio-resistance.doctor_spawn_egg": "Doctor Spawn Egg",
+  "entity.bio-resistance.doctor": "Doctor",
+  "doctor.trade": "Doctor"
 }

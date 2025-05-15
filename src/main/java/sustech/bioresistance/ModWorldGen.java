@@ -32,7 +32,7 @@ public class ModWorldGen {
                 BiomeSelectors.foundInOverworld(),
                 SpawnGroup.CREATURE,
                 ModEntities.RAT,
-                50, // 提高权重，原来是40
+                30, // 降低权重，原来是40
                 1,   // 最小数量
                 3    // 最大数量3
         );
