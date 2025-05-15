@@ -516,17 +516,20 @@
 
 ## 安装与体验
 
-安装须知：
+**安装须知：**
 
-* ❗本模组基于 fabric for 1.20.4 进行开发
+* ❗本模组基于 minecraft 1.20.4 进行开发
 
 - 使用的Fabric Loader版本是 0.16.14
 
 - Fabric API版本是 0.97.2+1.20.4
 - 前置mod：[geckolib-forge-1.20.4-4.4.4.jar]([MOD下载 - GeckoLib - MC百科|最大的Minecraft中文MOD百科](https://www.mcmod.cn/download/3232.html))
 - 推荐使用启动器：[PCL 最新正式版永久下载丨龙腾猫跃丨爱发电](https://afdian.com/p/0164034c016c11ebafcb52540025c377)
+- PCL 2中下载新版本游戏本体时配置如下：
 
-安装步骤：
+  <img src=".\images\6fd4a3a386f509b6f8f11e0403b1adb.png" alt="6fd4a3a386f509b6f8f11e0403b1adb" width="600" />
+
+**安装步骤：**
 
 前往[Release 测试版1.0.0发布 · EricFeng9/sustech_bioresistance](https://github.com/EricFeng9/sustech_bioresistance/releases/tag/1.0.0)
 
