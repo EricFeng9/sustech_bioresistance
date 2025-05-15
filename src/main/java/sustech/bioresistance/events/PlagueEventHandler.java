@@ -99,8 +99,7 @@ public class PlagueEventHandler {
                                     // 治疗失败
                                     player.sendMessage(Text.translatable("streptomycin.treatment.failed"), true);
                                     
-                                    // 失败后耐药性增加两次(0.2%)
-                                    manager.increaseResistance();
+                                    // 失败后耐药性增加(0.1%)
                                     manager.increaseResistance();
                                 }
                                 

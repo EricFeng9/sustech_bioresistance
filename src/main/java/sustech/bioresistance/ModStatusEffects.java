@@ -5,6 +5,7 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import sustech.bioresistance.effects.CandidiasisEffect;
 import sustech.bioresistance.effects.ExhaustionEffect;
 import sustech.bioresistance.effects.PlagueEffect;
 import sustech.bioresistance.effects.TetanusEffect;
@@ -21,6 +22,9 @@ public class ModStatusEffects {
     
     // 注册鼠疫效果
     public static final StatusEffect PLAGUE = new PlagueEffect();
+    
+    // 注册耳念珠菌感染效果
+    public static final StatusEffect CANDIDIASIS = new CandidiasisEffect();
 
     // 初始化方法
     public static void initialize() {
@@ -43,6 +47,13 @@ public class ModStatusEffects {
                 Registries.STATUS_EFFECT,
                 new Identifier(Bioresistance.MOD_ID, "plague"), // 唯一ID为"plague"
                 PLAGUE // 鼠疫效果实例
+        );
+        
+        // 注册耳念珠菌感染效果
+        Registry.register(
+                Registries.STATUS_EFFECT,
+                new Identifier(Bioresistance.MOD_ID, "candidiasis"), // 唯一ID为"candidiasis"
+                CANDIDIASIS // 耳念珠菌感染效果实例
         );
         
         Bioresistance.LOGGER.info("注册状态效果");
