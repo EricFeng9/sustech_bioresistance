@@ -27,6 +27,7 @@ import sustech.bioresistance.ModEntities;
 import sustech.bioresistance.ModStatusEffects;
 import sustech.bioresistance.data.CandidaResistanceManager;
 import sustech.bioresistance.entities.RatEntity;
+import sustech.bioresistance.events.CandidiasisEventHandler;
 import sustech.bioresistance.events.PlagueEventHandler;
 import sustech.bioresistance.events.TetanusEventHandler;
 import net.minecraft.registry.Registries;
@@ -66,6 +67,8 @@ public class BioresistanceCommands {
                     .append(Text.translatable("commands.bioresistance.tetanus_resistance.set.description." + langKey)), false);
                 source.sendFeedback(() -> Text.literal("/bioresistance plague_resistance set <value> - ")
                     .append(Text.translatable("commands.bioresistance.plague_resistance.set.description." + langKey)), false);
+                source.sendFeedback(() -> Text.literal("/bioresistance candida_resistance set <value> - ")
+                    .append(Text.translatable("commands.bioresistance.candida_resistance.set.description." + langKey)), false);
                 source.sendFeedback(() -> Text.literal("/bioresistance summon_rat - ")
                     .append(Text.translatable("commands.bioresistance.summon_rat.description." + langKey)), false);
                 source.sendFeedback(() -> Text.literal("/bioresistance apply_effect <effect> [player] - ")
@@ -136,6 +139,38 @@ public class BioresistanceCommands {
                             return 1;
                         } else {
                             source.sendError(Text.translatable("commands.bioresistance.plague_resistance.set.error." + langKey));
+                            return 0;
+                        }
+                    }))));
+                    
+        // 耳念珠菌耐药性命令
+        bioresistanceCommand.then(CommandManager.literal("candida_resistance")
+            .then(CommandManager.literal("set")
+                .requires(source -> source.hasPermissionLevel(2)) // 只有OP才能使用
+                .then(CommandManager.argument("value", DoubleArgumentType.doubleArg(0.0, 1.0))
+                    .executes(context -> {
+                        ServerCommandSource source = context.getSource();
+                        double value = DoubleArgumentType.getDouble(context, "value");
+                        String langKey = "zh"; // 默认中文
+                        
+                        // 设置耳念珠菌耐药性
+                        if (CandidiasisEventHandler.setCandidaResistance(value)) {
+                            source.sendFeedback(() -> Text.translatable(
+                                "commands.bioresistance.candida_resistance.set.success." + langKey, 
+                                String.format("%.1f%%", value * 100)
+                            ), true);
+                            
+                            // 直接通过服务器实例更新耐药性数据
+                            MinecraftServer server = source.getServer();
+                            if (server != null) {
+                                sustech.bioresistance.data.CandidaResistanceManager manager = 
+                                    sustech.bioresistance.data.CandidaResistanceManager.getManager(server);
+                                manager.setResistance((float)value);
+                            }
+                            
+                            return 1;
+                        } else {
+                            source.sendError(Text.translatable("commands.bioresistance.candida_resistance.set.error." + langKey));
                             return 0;
                         }
                     }))));
@@ -357,7 +392,35 @@ public class BioresistanceCommands {
                         
                         source.sendFeedback(() -> Text.literal("已对玩家 " + player.getName().getString() + " 应用过度劳累效果"), true);
                         return 1;
-                    }))));
+                    })))
+            .then(CommandManager.literal("candidiasis")
+                .executes(context -> {
+                    ServerCommandSource source = context.getSource();
+                    PlayerEntity player = source.getPlayer();
+                    
+                    if (player == null) {
+                        source.sendError(Text.literal("该命令只能由玩家执行"));
+                        return 0;
+                    }
+                    
+                    // 应用耳念珠菌感染效果
+                    CandidiasisEventHandler.applyCandidiasisEffect(player);
+                    
+                    source.sendFeedback(() -> Text.literal("已对玩家 " + player.getName().getString() + " 应用耳念珠菌感染效果"), true);
+                    return 1;
+                })
+                .then(CommandManager.argument("player", EntityArgumentType.player())
+                    .executes(context -> {
+                        ServerCommandSource source = context.getSource();
+                        PlayerEntity player = EntityArgumentType.getPlayer(context, "player");
+                        
+                        // 应用耳念珠菌感染效果
+                        CandidiasisEventHandler.applyCandidiasisEffect(player);
+                        
+                        source.sendFeedback(() -> Text.literal("已对玩家 " + player.getName().getString() + " 应用耳念珠菌感染效果"), true);
+                        return 1;
+                    })))
+        );
 
         // 添加生成诊所的命令
         dispatcher.register(
@@ -449,5 +512,53 @@ public class BioresistanceCommands {
         }
         
         return 1;
+    }
+
+    private static int applyEffectCommand(CommandContext<ServerCommandSource> context, PlayerEntity target, String effectNameParam) {
+        ServerCommandSource source = context.getSource();
+        StatusEffect effectToApply = null;
+        String effectDisplayName;
+        
+        // 根据效果名称选择效果
+        switch (effectNameParam.toLowerCase()) {
+            case "tetanus":
+                effectToApply = ModStatusEffects.TETANUS;
+                effectDisplayName = "Tetanus";
+                break;
+            case "plague":
+                effectToApply = ModStatusEffects.PLAGUE;
+                effectDisplayName = "Plague";
+                break;
+            case "exhaustion":
+                effectToApply = ModStatusEffects.EXHAUSTION;
+                effectDisplayName = "Exhaustion";
+                break;
+            case "candidiasis":
+                // 使用CandidiasisEventHandler.applyCandidiasisEffect替代直接应用效果
+                CandidiasisEventHandler.applyCandidiasisEffect(target);
+                effectDisplayName = "Candidiasis";
+                return 1; // 直接返回成功，因为已经在applyCandidiasisEffect中应用了效果
+            default:
+                source.sendError(Text.literal("未知效果: " + effectNameParam));
+                return 0;
+        }
+
+        // 应用效果
+        if (effectToApply != null) {
+            final String finalEffectName = effectDisplayName; // 创建final变量用于lambda表达式
+            target.addStatusEffect(new StatusEffectInstance(
+                effectToApply, 
+                6000,  // 5分钟
+                0, 
+                false, 
+                true, 
+                false
+            ));
+            source.sendFeedback(() -> Text.literal("已对玩家 " + target.getName().getString() + " 应用 " + finalEffectName + " 效果"), true);
+            return 1;
+        } else {
+            source.sendError(Text.literal("无法应用效果: " + effectNameParam));
+            return 0;
+        }
     }
 } 

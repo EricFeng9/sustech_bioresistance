@@ -9,7 +9,9 @@
 		"ExampleMixin",
 		"ServerPlayerEntityMixin",
 		"EntityMixin",
-		"LivingEntitySwimMixin"
+		"LivingEntitySwimMixin",
+		"CatEntityMixin",
+		"OcelotEntityMixin"
 	],
 	"client": [
 	],

@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 import software.bernie.geckolib.GeckoLib;
 import sustech.bioresistance.complexBlocks.Bio_Fridge;
 import sustech.bioresistance.entities.RatEntity;
+import sustech.bioresistance.events.CandidiasisEventHandler;
 import sustech.bioresistance.events.PlagueEventHandler;
 import sustech.bioresistance.events.TetanusEventHandler;
 
@@ -40,6 +41,10 @@ public class Bioresistance implements ModInitializer {
         TetanusEventHandler.register();
         // 注册鼠疫事件处理器
         PlagueEventHandler.register();
+        // 注册耳念珠菌感染事件处理器
+        CandidiasisEventHandler.register();
+        // 注册村庄老鼠生成处理器
+        sustech.bioresistance.events.VillageRatSpawnHandler.register();
         
         // 注册模组命令
         CommandRegistrationCallback.EVENT.register(

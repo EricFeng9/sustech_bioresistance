@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import sustech.bioresistance.events.PlayerHurtCallback;
+import sustech.bioresistance.events.CandidiasisEventHandler;
 import sustech.bioresistance.ModStatusEffects;
 
 /**
@@ -46,12 +47,14 @@ public class LivingEntityMixin {
         // 检查特殊效果
         boolean hasTetanus = entity.hasStatusEffect(ModStatusEffects.TETANUS);
         boolean hasPlague = entity.hasStatusEffect(ModStatusEffects.PLAGUE);
+        boolean hasCandidiasis = entity.hasStatusEffect(ModStatusEffects.CANDIDIASIS);
         
-        // 如果实体有破伤风或鼠疫效果，需要特殊处理
-        if (hasTetanus || hasPlague) {
+        // 如果实体有破伤风或鼠疫或耳念珠菌感染效果，需要特殊处理
+        if (hasTetanus || hasPlague || hasCandidiasis) {
             // 保存特殊效果
             StatusEffectInstance tetanusEffect = null;
             StatusEffectInstance plagueEffect = null;
+            StatusEffectInstance candidiasisEffect = null;
             
             if (hasTetanus) {
                 tetanusEffect = entity.getStatusEffect(ModStatusEffects.TETANUS);
@@ -61,12 +64,16 @@ public class LivingEntityMixin {
                 plagueEffect = entity.getStatusEffect(ModStatusEffects.PLAGUE);
             }
             
+            if (hasCandidiasis) {
+                candidiasisEffect = entity.getStatusEffect(ModStatusEffects.CANDIDIASIS);
+            }
+            
             // 临时变量，记录是否有其他效果被清除
             boolean otherEffectsCleared = false;
             
-            // 先清除除了破伤风和鼠疫以外的所有效果
+            // 先清除除了破伤风、鼠疫和耳念珠菌感染以外的所有效果
             for (StatusEffect effect : entity.getActiveStatusEffects().keySet().toArray(new StatusEffect[0])) {
-                if (effect != ModStatusEffects.TETANUS && effect != ModStatusEffects.PLAGUE) {
+                if (effect != ModStatusEffects.TETANUS && effect != ModStatusEffects.PLAGUE && effect != ModStatusEffects.CANDIDIASIS) {
                     entity.removeStatusEffect(effect);
                     otherEffectsCleared = true;
                 }
@@ -86,18 +93,24 @@ public class LivingEntityMixin {
      */
     @Inject(method = "removeStatusEffect", at = @At("HEAD"), cancellable = true)
     private void onRemoveStatusEffect(StatusEffect effect, CallbackInfoReturnable<Boolean> callback) {
-        // 如果尝试移除的是破伤风或鼠疫效果，阻止操作
-        if (effect == ModStatusEffects.TETANUS || effect == ModStatusEffects.PLAGUE) {
-            // 仅允许从PlagueEventHandler或TetanusEventHandler中主动调用的移除操作
-            // 这是通过调用栈判断的，不太完美但可用
+        // 检查是否为特殊效果（破伤风、鼠疫或耳念珠菌感染）
+        if (effect == ModStatusEffects.TETANUS || effect == ModStatusEffects.PLAGUE || effect == ModStatusEffects.CANDIDIASIS) {
+            // 检查是否从事件处理器中移除效果
+            if (CandidiasisEventHandler.IS_REMOVING_EFFECT_FROM_HANDLER) {
+                // 允许从事件处理器中移除效果
+                return;
+            }
+            
+            // 检查调用栈，允许特定事件处理器调用removeStatusEffect
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             boolean allowedCaller = false;
             
             // 检查调用栈中是否有我们的事件处理类
             for (StackTraceElement element : stackTrace) {
                 String className = element.getClassName();
-                if (className.contains("TetanusEventHandler") || 
-                    className.contains("PlagueEventHandler") ||
+                if (className.contains("PlagueEventHandler") || 
+                    className.contains("TetanusEventHandler") || 
+                    className.contains("CandidiasisEventHandler") || 
                     className.contains("ModStatusEffects")) {
                     allowedCaller = true;
                     break;

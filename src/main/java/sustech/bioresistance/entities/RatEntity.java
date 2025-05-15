@@ -26,6 +26,8 @@ import net.minecraft.entity.mob.DrownedEntity;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.mob.ZombifiedPiglinEntity;
 import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.CatEntity;
+import net.minecraft.entity.passive.OcelotEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -35,6 +37,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.Heightmap;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -46,6 +49,7 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 import sustech.bioresistance.ModItems;
 import sustech.bioresistance.events.PlagueEventHandler;
+import sustech.bioresistance.ModEntities;
 
 public class RatEntity extends AnimalEntity implements GeoEntity {
     private static final TrackedData<Boolean> ANGRY = DataTracker.registerData(RatEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -101,6 +105,9 @@ public class RatEntity extends AnimalEntity implements GeoEntity {
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new MeleeAttackGoal(this, 1.0, false));
+        // 添加躲避猫和豹猫的行为
+        this.goalSelector.add(2, new FleeEntityGoal<>(this, CatEntity.class, 10.0F, 1.2, 1.5));
+        this.goalSelector.add(2, new FleeEntityGoal<>(this, OcelotEntity.class, 10.0F, 1.2, 1.5));
         // 更趋向于黑暗区域
         this.goalSelector.add(3, new FleeEntityGoal<>(this, PlayerEntity.class, 8.0F, 1.0, 1.2));
         this.goalSelector.add(3, new AvoidSunlightGoal(this));
@@ -130,6 +137,11 @@ public class RatEntity extends AnimalEntity implements GeoEntity {
     public static boolean canSpawnInDark(EntityType<RatEntity> type, ServerWorldAccess world, SpawnReason reason, BlockPos pos, Random random) {
         return world.getBlockState(pos.down()).allowsSpawning(world, pos.down(), type) && 
                world.getLightLevel(pos) <= 7;
+    }
+
+    // 村庄专用生成检查方法，不受光照限制
+    public static boolean canSpawnInVillage(EntityType<RatEntity> type, ServerWorldAccess world, SpawnReason reason, BlockPos pos, Random random) {
+        return world.getBlockState(pos.down()).allowsSpawning(world, pos.down(), type);
     }
 
     @Override
@@ -234,5 +246,31 @@ public class RatEntity extends AnimalEntity implements GeoEntity {
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return null; // 老鼠不能繁殖
+    }
+
+    // 用于强制生成更多老鼠的静态方法
+    public static void forceSpawnRatsInVillage(ServerWorld world, BlockPos villageCenter, int radius) {
+        // 在村庄中心周围随机生成3-5只老鼠
+        int ratsToSpawn = 3 + world.random.nextInt(2); // 3到5只
+        
+        for (int i = 0; i < ratsToSpawn; i++) {
+            // 在村庄中心的半径范围内随机选择一个位置
+            int x = villageCenter.getX() + world.random.nextInt(radius * 2) - radius;
+            int z = villageCenter.getZ() + world.random.nextInt(radius * 2) - radius;
+            
+            // 寻找合适的Y坐标（地面）
+            int y = world.getTopY(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, x, z);
+            BlockPos spawnPos = new BlockPos(x, y, z);
+            
+            // 检查生成位置是否适合
+            if (canSpawnInVillage(ModEntities.RAT, world, SpawnReason.NATURAL, spawnPos, world.random)) {
+                // 生成老鼠实体
+                RatEntity rat = ModEntities.RAT.create(world);
+                if (rat != null) {
+                    rat.refreshPositionAndAngles(spawnPos, 0.0F, 0.0F);
+                    world.spawnEntityAndPassengers(rat);
+                }
+            }
+        }
     }
 }

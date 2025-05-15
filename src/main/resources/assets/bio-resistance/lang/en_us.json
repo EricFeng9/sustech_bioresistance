@@ -38,7 +38,7 @@
   "effect.bio-resistance.exhaustion": "Exhaustion",
   "effect.bio-resistance.tetanus": "Tetanus",
   "effect.bio-resistance.plague": "Plague",
-  "effect.bio-resistance.candida": "Candidiasis",
+  "effect.bio-resistance.candidiasis": "Candidiasis",
   
   "tetanus.description": "Obtained after contact with iron tools, effect is Weakness I 5min, Slowness I 5min. After countdown ends, player will die immediately. Can be cured with Metronidazole or Anti-drug Resistant Microbial Capsules",
   "tetanus.acute_phase": "Your tetanus infection has entered acute phase, ",
@@ -51,9 +51,11 @@
   "plague.not.cured.by.streptomycin": "Streptomycin failed to cure your plague, try again",
   "plague.cured.by.capsules": "Anti-drug resistant microbial capsules have cured your plague",
   
-  "candida.description": "Obtained after contact with infected sources, effect is Slowness II 6min, Hunger II 6min. After countdown ends, player will die immediately. Can be cured with Antifungal Drug or Anti-drug Resistant Microbial Capsules",
-  "candida.acute_phase": "Your candida infection has entered acute phase, ",
-  "candida.acute_phase.incurable": "incurable",
+  "candidiasis.description": "May be acquired when exhausted or infected with plague or tetanus. Causes Weakness I and Slowness I for 3 minutes, followed by an acute phase with Nausea for 20 seconds, after which it is fatal",
+  "candidiasis.acute_phase": "Your Candida infection has entered acute phase!",
+  "candidiasis.acute_phase.fatal": "Fatal if not treated immediately!",
+  "candidiasis.infected": "You have been infected with Candida auris!",
+  "candidiasis.symptoms": "You feel weak and move slower",
   
   "metronidazole.description": "Used for tetanus treatment, kills tetanus bacteria",
   "metronidazole.resistance": "Current tetanus bacteria resistance: ",
@@ -81,9 +83,9 @@
   "commands.bioresistance.plague_resistance.set.description.en": "Set plague bacteria resistance to streptomycin (value between 0-1)",
   "commands.bioresistance.plague_resistance.set.success.en": "Plague bacteria resistance set to %s",
   "commands.bioresistance.plague_resistance.set.error.en": "Failed to set plague bacteria resistance",
-  "commands.bioresistance.candida_resistance.set.description.en": "Set candida resistance to antifungal drug (value between 0-1)",
-  "commands.bioresistance.candida_resistance.set.success.en": "Candida resistance set to %s",
-  "commands.bioresistance.candida_resistance.set.error.en": "Failed to set candida resistance",
+  "commands.bioresistance.candida_resistance.set.description.en": "Set Candida auris resistance to antifungal drug (value between 0-1)",
+  "commands.bioresistance.candida_resistance.set.success.en": "Candida auris resistance set to %s",
+  "commands.bioresistance.candida_resistance.set.error.en": "Failed to set Candida auris resistance",
   
   "item.bio-resistance.soil_extract_bucket": "Soil Extract Bucket",
   "block.bio-resistance.soil_extract_fluid_block": "Soil Extract",
@@ -94,5 +96,6 @@
   "entity.bio-resistance.rat": "Rat",
   "item.bio-resistance.raw_rat_meat": "Raw Rat Meat",
   "item.bio-resistance.cooked_rat_meat": "Cooked Rat Meat",
-  "item.bio-resistance.rat_spawn_egg": "Rat Spawn Egg"
+  "item.bio-resistance.rat_spawn_egg": "Rat Spawn Egg",
+  "anti_drug_resistant_microbial_ointment.treatment.success": "Treatment successful! Candida infection has been cleared"
 }

@@ -40,6 +40,7 @@
   "effect.bio-resistance.tetanus": "破伤风",
   "effect.bio-resistance.plague": "鼠疫",
   "effect.bio-resistance.candida": "念珠菌病",
+  "effect.bio-resistance.candidiasis": "耳念珠菌感染",
   
   "tetanus.description": "每次接触铁制工具后获得，效果为虚弱I 5min、缓慢I 5min，倒计时结束后将直接死亡，可以通过甲硝唑或抗耐药性微生物胶囊治愈",
   "tetanus.acute_phase": "您的破伤风感染已经进入急性发病期，",
@@ -82,7 +83,7 @@
   "commands.bioresistance.plague_resistance.set.description.zh": "设置鼠疫耶尔森菌对链霉素的耐药性（0-1之间的值）",
   "commands.bioresistance.plague_resistance.set.success.zh": "鼠疫耶尔森菌耐药性已设置为 %s",
   "commands.bioresistance.plague_resistance.set.error.zh": "设置鼠疫耶尔森菌耐药性失败",
-  "commands.bioresistance.candida_resistance.set.description.zh": "设置耳念珠菌对抗真菌药的耐药性（0-1之间的值）",
+  "commands.bioresistance.candida_resistance.set.description.zh": "设置耳念珠菌对抗真菌药的耐药性 (0-1之间)",
   "commands.bioresistance.candida_resistance.set.success.zh": "耳念珠菌耐药性已设置为 %s",
   "commands.bioresistance.candida_resistance.set.error.zh": "设置耳念珠菌耐药性失败",
   
@@ -96,5 +97,11 @@
   "item.bio-resistance.raw_rat_meat": "生老鼠肉",
   "item.bio-resistance.cooked_rat_meat": "熟老鼠肉",
   "item.bio-resistance.rat_spawn_egg": "老鼠刷怪蛋",
-  "plague.infected": "你感染了鼠疫！"
+  "plague.infected": "你感染了鼠疫！",
+  "candidiasis.description": "当过度劳累或患有鼠疫、破伤风时有小概率获得，效果为虚弱I、缓慢I持续3分钟，随后会进入急性期产生反胃效果20秒，反胃效果结束后将直接死亡",
+  "candidiasis.acute_phase": "你的耳念珠菌感染已进入急性期！",
+  "candidiasis.acute_phase.fatal": "如不及时治疗将会致命！",
+  "candidiasis.infected": "你感染了耳念珠菌！",
+  "candidiasis.symptoms": "你感到虚弱且行动缓慢",
+  "anti_drug_resistant_microbial_ointment.treatment.success": "治疗成功！耳念珠菌感染已被清除"
 }
