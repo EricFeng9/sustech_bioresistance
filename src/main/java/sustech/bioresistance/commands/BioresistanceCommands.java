@@ -8,6 +8,7 @@ import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.Command;
 
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.command.argument.EntityArgumentType;
@@ -16,6 +17,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -29,6 +31,8 @@ import sustech.bioresistance.events.PlagueEventHandler;
 import sustech.bioresistance.events.TetanusEventHandler;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Identifier;
 
 /**
  * 生物抗性模组命令系统
@@ -354,6 +358,34 @@ public class BioresistanceCommands {
                         source.sendFeedback(() -> Text.literal("已对玩家 " + player.getName().getString() + " 应用过度劳累效果"), true);
                         return 1;
                     }))));
+
+        // 添加生成诊所的命令
+        dispatcher.register(
+            CommandManager.literal("spawnClinic")
+                .requires(source -> source.hasPermissionLevel(2)) // 需要管理员权限
+                .executes(context -> {
+                    ServerCommandSource source = context.getSource();
+                    ServerPlayerEntity player = source.getPlayer();
+                    
+                    if (player != null) {
+                        BlockPos pos = player.getBlockPos();
+                        ServerWorld world = source.getWorld();
+                        
+                        // 获取诊所结构ID并生成
+                        Identifier structureId = new Identifier("bio-resistance", "clinic");
+                        
+                        // 告知玩家
+                        source.sendFeedback(() -> Text.literal("尝试在当前位置生成诊所结构"), false);
+                        
+                        // 在以后实现自定义结构生成
+                        // 目前只是发送消息作为测试
+                        return Command.SINGLE_SUCCESS;
+                    } else {
+                        source.sendError(Text.literal("此命令只能由玩家执行"));
+                        return 0;
+                    }
+                })
+        );
 
         // 注册命令
         dispatcher.register(bioresistanceCommand);
