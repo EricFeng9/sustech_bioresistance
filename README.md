@@ -99,9 +99,11 @@
 
 ### 老鼠 (*Rat*)
 
+<div>
+
 <img src=".\images\image-20250515171900909.png" alt="image-20250515171900909" width="300" align = left />
 
-
+</div>
 
 - **特性**：
   小型中立生物，行动迅速且隐蔽，主要在黑暗处活动，**会传播鼠疫**。
@@ -120,9 +122,11 @@
 
 ### 医生村民 (*Doctor Villager*)
 
+<div>
+
 <img src=".\images\image-20250515172052093.png" alt="image-20250515172052093" width="300"  align="left"/>
 
-
+</div>
 
 - **特性**：
   特殊的村民类型，穿着白大褂，能提供医疗服务和药品交易。
@@ -499,7 +503,28 @@
 
 ## 安装与体验
 
-❗本模组基于 fabric for 1.20.4 进行开发
+安装须知：
+
+* ❗本模组基于 fabric for 1.20.4 进行开发
+
+- 使用的Fabric Loader版本是 0.16.14
+
+- Fabric API版本是 0.97.2+1.20.4
+- 前置mod：[geckolib-forge-1.20.4-4.4.4.jar]([MOD下载 - GeckoLib - MC百科|最大的Minecraft中文MOD百科](https://www.mcmod.cn/download/3232.html))
+
+安装步骤：
+
+[Release 测试版1.0.0发布 · EricFeng9/sustech_bioresistance](https://github.com/EricFeng9/sustech_bioresistance/releases/tag/1.0.0)
+
+下载以下文件
+
+<img src=".\images\image-20250515183005951.png" alt="image-20250515182918831" width=300px  align="left"/>
+
+前往[geckolib-forge-1.20.4-4.4.4.jar]([MOD下载 - GeckoLib - MC百科|最大的Minecraft中文MOD百科](https://www.mcmod.cn/download/3232.html))下载以下文件
+
+<img src=".\images\image-20250515183108734.png" alt="image-20250515183108734" width=300px  align="left" />
+
+将上述文件放入`.minecraft\mods\`（`或者游戏版本根目录\mods\`）文件夹下，启动游戏即可
 
 ## 反馈问题
 
