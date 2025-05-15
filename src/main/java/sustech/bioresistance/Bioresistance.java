@@ -43,6 +43,8 @@ public class Bioresistance implements ModInitializer {
         PlagueEventHandler.register();
         // 注册耳念珠菌感染事件处理器
         CandidiasisEventHandler.register();
+        // 注册村庄老鼠生成处理器
+        sustech.bioresistance.events.VillageRatSpawnHandler.register();
         
         // 注册模组命令
         CommandRegistrationCallback.EVENT.register(
