@@ -100,7 +100,6 @@
 ### 老鼠 (*Rat*)
 
 <p align="left">
-
 <img src=".\images\image-20250515171900909.png" alt="image-20250515171900909" width="300" />
 
 </p>
@@ -122,11 +121,11 @@
 
 ### 医生村民 (*Doctor Villager*)
 
-<div>
+<p align="left">
 
-<img src=".\images\image-20250515172052093.png" alt="image-20250515172052093" width="300"  align="left"/>
+<img src=".\images\image-20250515172052093.png" alt="image-20250515172052093" width="300" />
 
-</div>
+</p>
 
 - **特性**：
   特殊的村民类型，穿着白大褂，能提供医疗服务和药品交易。
@@ -140,9 +139,11 @@
 
   - 医疗原料：空胶囊、注射器
 
-    <img src=".\images\image-20250515172220098.png" alt="image-20250515172220098" width="300" align = "left"/>
+    <p align="left">
 
+    <img src=".\images\image-20250515172220098.png" alt="image-20250515172220098" width="300" />
     
+    </p>
 
 - **交互方式**：
 
@@ -161,8 +162,11 @@
 
   造成虚弱和缓慢效果，每5s造成1点伤害，持续时间5分钟，时间结束后若未治愈则立即死亡。
   
-  <img src=".\images\image-20250515170837775.png" alt="image-20250515170837775" width="300" align = "left"/>
+  <p align="left">
   
+  <img src=".\images\image-20250515170837775.png" alt="image-20250515170837775" width="300"/>
+  
+  </p>
   
 - **治疗方式**：
 
@@ -171,9 +175,11 @@
 
   初始耐药性为0%，每次使用链霉素增加0.1%的耐药性，最高可达100%。
   
-  <img src=".\images\image-20250515170704088.png" alt="image-20250515170704088" width="300" align = "left" />
+  <p align="left">
   
+  <img src=".\images\image-20250515170704088.png" alt="image-20250515170704088" width="300"/>
   
+  </p>
 
 ### 破伤风 (*Tetanus*) ![破伤风](images/effects/tetanus.png)
 - **感染条件**：
@@ -185,7 +191,6 @@
   获得缓慢II和虚弱I效果，持续5分钟，时间结束后若未治愈则立即死亡。
   
   <img src=".\images\image-20250515171011059.png" alt="image-20250515171011059" width="300" align = "left" />
-  
   
 - **治疗方式**：
 
