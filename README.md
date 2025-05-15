@@ -1,4 +1,6 @@
-<img src=".\images\sustech-bio-light.png" alt="sustech-bio-light" width="100" align = "left"/>
+<p align="left">
+
+<img src=".\images\sustech-bio-light.png" alt="sustech-bio-light" width="100"/>
 
 # 生物抗药性模组 (Bioresistance Mod)
 
@@ -190,7 +192,9 @@
 
   获得缓慢II和虚弱I效果，持续5分钟，时间结束后若未治愈则立即死亡。
   
-  <img src=".\images\image-20250515171011059.png" alt="image-20250515171011059" width="300" align = "left" />
+  
+  
+  <img src=".\images\image-20250515171011059.png" alt="image-20250515171011059" width="300"/>
   
 - **治疗方式**：
 
@@ -556,6 +560,8 @@
 欢迎关注**Sustech-Bio**官方公众号👇获取团队最新动向
 
 ![db28d58aa9f82804ddc80bc33314251](.\images\db28d58aa9f82804ddc80bc33314251.jpg)
+
+</p>
 
 ---
 
