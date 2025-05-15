@@ -32,6 +32,10 @@ loom {
 			sourceSet sourceSets.client
 		}
 	}
+
+	mixin {
+		defaultRefmapName = "bio-resistance-refmap.json"
+	}
 }
 
 dependencies {
