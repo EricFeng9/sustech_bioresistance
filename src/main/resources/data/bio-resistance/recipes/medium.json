@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "   ",
+    "ixi",
+    "iii"
+  ],
+  "key": {
+    "x": {
+      "item": "bio-resistance:agar_block"
+    },
+    "i": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "bio-resistance:medium"
+  }
+} 

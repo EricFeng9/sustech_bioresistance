@@ -31,7 +31,6 @@ public class ModBlocks {
             itemGroup.add(ModBlocks.Bio_Fridge);
             itemGroup.add(ModBlocks.POLLUTION_BLOCK);
             itemGroup.add(ModBlocks.Agar_Block);
-            itemGroup.add(ModBlocks.Agar_Block_Yellow);
             itemGroup.add(ModBlocks.Autoclave);
             itemGroup.add(ModBlocks.CleanTable);
             itemGroup.add(ModBlocks.BacterialExtractor);

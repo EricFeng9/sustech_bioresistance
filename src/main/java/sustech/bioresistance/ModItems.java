@@ -181,6 +181,13 @@ public class ModItems {
             RAT_SPAWN_EGG_KEY
     );
     
+    //海带桶
+    public static final RegistryKey<Item> KELP_BUCKET_KEY = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Bioresistance.MOD_ID, "kelp_bucket"));
+    public static final Item KELP_BUCKET = register(
+            new sustech.bioresistance.items.KelpBucketItem(new Item.Settings()),
+            KELP_BUCKET_KEY
+    );
+    
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
             //itemGroup.add(EXPLANATORY_LIQUID_B);
@@ -207,6 +214,7 @@ public class ModItems {
             itemGroup.add(RAW_RAT_MEAT);
             itemGroup.add(COOKED_RAT_MEAT);
             itemGroup.add(RAT_SPAWN_EGG);
+            itemGroup.add(KELP_BUCKET);
         });
     }
 }
