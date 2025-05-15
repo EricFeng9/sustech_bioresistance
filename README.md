@@ -52,7 +52,7 @@
   利用T6SS研发的革命性药物，能够对抗所有具有耐药性的病原体，忽略病原体产生的耐药性！是治疗所有感染的终极解决方案。
 - **抗耐药性微生物软膏 (*Anti_drug_resistant_microbial_ointment*)** ![抗耐药性微生物软膏](images/items/anti_drug_resistant_microbial_ointment.png)：
 
-  T6SS与水凝胶结合的外用产品，适用于皮肤感染，同样不会导致耐药性产生。
+  T6SS与水凝胶结合的外用产品，适用于耳念珠菌感染，忽略耳念珠菌产生的耐药性！是治疗耳念珠菌感染的终极解决方案。
 
 ### 实验材料与工具
 - **注射器 (*Syringe*)** ![注射器](images/items/syringe.png)：
@@ -80,13 +80,13 @@
 ### 基因工程材料
 - **DNA片段1 (*DNA_segment_1*)** ![DNA片段1](images/items/dna_segment_1.png)：
 
-  包含T6SS系统基座和管鞘结构的基因片段，是T6SS系统的结构基础部分。
+  来自T6SS的膜复合体，是T6SS系统的结构基础部分。
 - **DNA片段2 (*DNA_segment_2*)** ![DNA片段2](images/items/dna_segment_2.png)：
 
-  包含T6SS系统内管和穿刺针的基因片段，是T6SS系统的功能执行部分。
+  来自T6SS的基座结构，是T6SS系统的功能支撑部分。
 - **DNA片段3 (*DNA_segment_3*)** ![DNA片段3](images/items/dna_segment_3.png)：
 
-  包含T6SS系统调控元件的基因片段，控制系统的表达和活性。
+  来自T6SS的尾管/鞘复合体，是T6SS系统的功能执行部分。
 
 ### 动物相关物品
 - **生老鼠肉 (*Raw_rat_meat*)** ![生老鼠肉](images/items/raw_rat_meat.png)：
@@ -106,6 +106,7 @@
 ### 老鼠 (*Rat*)
 
 <p align="left">
+
 <img src=".\images\image-20250515171900909.png" alt="image-20250515171900909" width="300" />
 
 </p>
@@ -128,7 +129,6 @@
 ### 医生村民 (*Doctor Villager*)
 
 <p align="left">
-
 <img src=".\images\image-20250515172052093.png" alt="image-20250515172052093" width="300" />
 
 </p>
@@ -146,11 +146,10 @@
   - 医疗原料：空胶囊、注射器
 
     <p align="left">
-
     <img src=".\images\image-20250515172220098.png" alt="image-20250515172220098" width="300" />
     
     </p>
-
+  
 - **交互方式**：
 
   - 右键点击打开交易界面
@@ -159,6 +158,16 @@
   是游戏早期对抗疾病的重要支持，但随着耐药性增加，玩家需要转向研发高级药物。
 
 ## 疾病机制详解
+
+### 过度劳累 (*Exhaustion*) ![过度劳累](images/effects/exhaustion.png)
+- **触发条件**：
+  玩家连续72000游戏刻(3个游戏日)未睡觉会自动获得该状态
+- **症状表现**：
+  造成挖掘和攻击速度降低，移动速度减慢，持续时间无限，直到玩家睡觉才会消失
+- **危险性**：
+  处于过度劳累状态时有0.5%概率被感染耳念珠菌，降低生存能力
+- **解决方法**：
+  在床上睡觉即可消除过度劳累状态
 
 ### 鼠疫 (*Plague*) ![鼠疫](images/effects/plague.png)
 - **感染条件**：

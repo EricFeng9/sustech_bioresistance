@@ -28,8 +28,8 @@ public class TetanusEventHandler {
     // 破伤风效果持续时间 (5分钟 = 300秒 = 6000刻)
     private static final int TETANUS_DURATION = 6000;
     
-    // 破伤风杆菌对甲硝唑的耐药性，0-1之间，默认0.2
-    private static double tetanusResistance = 0.2;
+    // 破伤风杆菌对甲硝唑的耐药性，0-1之间，默认0.0
+    private static double tetanusResistance = 0.0;
     
     // 获取破伤风状态效果实例
     private static final StatusEffect TETANUS_EFFECT = (StatusEffect)ModStatusEffects.TETANUS;

@@ -91,8 +91,8 @@
   "block.bio-resistance.soil_extract_fluid_block": "Soil Extract",
   
   "dna_segment_1.description": "§1Membrane complex component from T6SS ",
-  "dna_segment_2.description": "§dSpike structure from T6SS ",
-  "dna_segment_3.description": "§aWedge component from T6SS ",
+  "dna_segment_2.description": "§dBaseplate structure from T6SS ",
+  "dna_segment_3.description": "§aTail tube/sheath complex from T6SS ",
   "entity.bio-resistance.rat": "Rat",
   "item.bio-resistance.raw_rat_meat": "Raw Rat Meat",
   "item.bio-resistance.cooked_rat_meat": "Cooked Rat Meat",

@@ -155,7 +155,7 @@ public class RatEntity extends AnimalEntity implements GeoEntity {
         boolean attacked = super.tryAttack(target);
         if (attacked && target instanceof LivingEntity) {
             // 老鼠攻击目标时，有1%概率感染鼠疫
-            if (this.getRandom().nextFloat() < 0.01f) { // 1%感染几率
+            if (this.getRandom().nextFloat() < 0.01f) { // 1% -0.01f感染几率
                 // 使用PlagueEventHandler来应用鼠疫效果
                 PlagueEventHandler.applyPlagueEffect((LivingEntity)target);
             }

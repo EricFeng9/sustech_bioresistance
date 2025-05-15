@@ -91,8 +91,8 @@
   "block.bio-resistance.soil_extract_fluid_block": "土壤浸取液",
   
   "dna_segment_1.description": "§1来自T6SS的膜复合体",
-  "dna_segment_2.description": "§d来自T6SS的尖刺结构",
-  "dna_segment_3.description": "§a来自T6SS的楔形结构",
+  "dna_segment_2.description": "§d来自T6SS的基座结构",
+  "dna_segment_3.description": "§a来自T6SS的尾管/鞘复合体",
   "entity.bio-resistance.rat": "老鼠",
   "item.bio-resistance.raw_rat_meat": "生老鼠肉",
   "item.bio-resistance.cooked_rat_meat": "熟老鼠肉",
