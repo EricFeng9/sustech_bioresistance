@@ -99,11 +99,11 @@
 
 ### 老鼠 (*Rat*)
 
-<div>
+<p align="left">
 
 <img src=".\images\image-20250515171900909.png" alt="image-20250515171900909" width="300" align = left />
 
-</div>
+</p>
 
 - **特性**：
   小型中立生物，行动迅速且隐蔽，主要在黑暗处活动，**会传播鼠疫**。
