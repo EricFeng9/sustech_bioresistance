@@ -10,7 +10,7 @@
   "item.bio-resistance.e_coli_t6ss_medium":"装配T6SS的大肠杆菌培养基",
   "item.bio-resistance.metronidazole": "甲硝唑",
   "item.bio-resistance.streptomycin": "链霉素",
-  "item.bio-resistance.antifungal_drug": "抗真菌药物",
+  "item.bio-resistance.antifungal_drug": "抗真菌药",
   "item.bio-resistance.anti_drug_resistant_microbial_capsules": "抗耐药性微生物胶囊",
   "item.bio-resistance.anti_drug_resistant_microbial_ointment": "抗耐药性微生物软膏",
   "item.bio-resistance.syringe":"注射器",
@@ -104,5 +104,8 @@
   "candidiasis.acute_phase.fatal": "如不及时治疗将会致命！",
   "candidiasis.infected": "你感染了耳念珠菌！",
   "candidiasis.symptoms": "你感到虚弱且行动缓慢",
-  "anti_drug_resistant_microbial_ointment.treatment.success": "治疗成功！耳念珠菌感染已被清除"
+  "anti_drug_resistant_microbial_ointment.treatment.success": "治疗成功！耳念珠菌感染已被清除",
+  "item.bio-resistance.doctor_spawn_egg": "医生生成蛋",
+  "entity.bio-resistance.doctor": "医生",
+  "doctor.trade": "医生"
 }

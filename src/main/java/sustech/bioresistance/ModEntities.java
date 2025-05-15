@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import sustech.bioresistance.Bioresistance;
+import sustech.bioresistance.entities.DoctorEntity;
 import sustech.bioresistance.entities.RatEntity;
 
 public class ModEntities {
@@ -16,6 +17,14 @@ public class ModEntities {
             new Identifier(Bioresistance.MOD_ID, "rat"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, RatEntity::new)
                     .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                    .build()
+    );
+    
+    public static final EntityType<DoctorEntity> DOCTOR = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(Bioresistance.MOD_ID, "doctor"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DoctorEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.6f, 1.95f))
                     .build()
     );
 

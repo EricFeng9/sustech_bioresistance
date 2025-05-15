@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import software.bernie.geckolib.GeckoLib;
 import sustech.bioresistance.complexBlocks.Bio_Fridge;
+import sustech.bioresistance.entities.DoctorEntity;
 import sustech.bioresistance.entities.RatEntity;
 import sustech.bioresistance.events.CandidiasisEventHandler;
 import sustech.bioresistance.events.PlagueEventHandler;
@@ -35,6 +36,8 @@ public class Bioresistance implements ModInitializer {
         ModStatusEffects.initialize();
         ModEntities.registerModEntities();
         FabricDefaultAttributeRegistry.register(ModEntities.RAT, RatEntity.createRatAttributes());
+        // 注册医生实体属性
+        FabricDefaultAttributeRegistry.register(ModEntities.DOCTOR, DoctorEntity.createDoctorAttributes());
         // 初始化世界生成
         ModWorldGen.initialize();
         // 注册破伤风事件处理器
@@ -45,6 +48,8 @@ public class Bioresistance implements ModInitializer {
         CandidiasisEventHandler.register();
         // 注册村庄老鼠生成处理器
         sustech.bioresistance.events.VillageRatSpawnHandler.register();
+        // 注册诊所医生生成处理器
+        sustech.bioresistance.events.ClinicDoctorSpawnHandler.register();
         
         // 注册模组命令
         CommandRegistrationCallback.EVENT.register(
