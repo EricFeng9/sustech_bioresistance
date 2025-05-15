@@ -1,4 +1,4 @@
-<img src=".\images\sustech-bio-light.png" alt="sustech-bio-light" style="zoom:20%;" align = "left"/>
+<img src=".\images\sustech-bio-light.png" alt="sustech-bio-light" width="100" align = "left"/>
 
 # 生物抗药性模组 (Bioresistance Mod)
 
@@ -6,7 +6,7 @@
 
 本模组为Minecraft添加了一系列与生物抗药性相关的物品、疾病机制和治疗方案，通过模拟现实世界中细菌耐药性的问题，为游戏增添了生物医学领域的挑战。
 
-> 声明：本模组为南方科技大学 2025 IGEM比赛队伍Sustech-Bio创作，代码开源
+> 声明：本模组为南方科技大学 2025 IGEM比赛队伍Sustech-Bio创作，版权声明在文档最下方
 
 ## 基础系统介绍
 
@@ -99,7 +99,9 @@
 
 ### 老鼠 (*Rat*)
 
-<img src=".\images\image-20250515171900909.png" alt="image-20250515171900909" style="zoom:50%;" align = left />
+<img src=".\images\image-20250515171900909.png" alt="image-20250515171900909" width="300" align = left />
+
+
 
 - **特性**：
   小型中立生物，行动迅速且隐蔽，主要在黑暗处活动，**会传播鼠疫**。
@@ -118,7 +120,9 @@
 
 ### 医生村民 (*Doctor Villager*)
 
-<img src="E:\Sustech\IGEM\minecraft\bio-resistance-1.20.4\sustech_bioresistance\images\image-20250515172052093.png" alt="image-20250515172052093" style="zoom:50%;"  align="left"/>
+<img src=".\images\image-20250515172052093.png" alt="image-20250515172052093" width="300"  align="left"/>
+
+
 
 - **特性**：
   特殊的村民类型，穿着白大褂，能提供医疗服务和药品交易。
@@ -132,7 +136,9 @@
 
   - 医疗原料：空胶囊、注射器
 
-    <img src=".\images\image-20250515172220098.png" alt="image-20250515172220098" style="zoom:50%;" align = "left"/>
+    <img src=".\images\image-20250515172220098.png" alt="image-20250515172220098" width="300" align = "left"/>
+
+    
 
 - **交互方式**：
 
@@ -151,7 +157,9 @@
 
   造成虚弱和缓慢效果，每5s造成1点伤害，持续时间5分钟，时间结束后若未治愈则立即死亡。
   
-  <img src=".\images\image-20250515170837775.png" alt="image-20250515170837775" style="zoom:50%;" align = "left"/>
+  <img src=".\images\image-20250515170837775.png" alt="image-20250515170837775" width="300" align = "left"/>
+  
+  
 - **治疗方式**：
 
   使用链霉素有(100%-耐药性)的几率治愈，或使用抗耐药性微生物胶囊100%治愈。
@@ -159,7 +167,9 @@
 
   初始耐药性为0%，每次使用链霉素增加0.1%的耐药性，最高可达100%。
   
-  <img src=".\images\image-20250515170704088.png" alt="image-20250515170704088" style="zoom:50%;" align = "left" />
+  <img src=".\images\image-20250515170704088.png" alt="image-20250515170704088" width="300" align = "left" />
+  
+  
 
 ### 破伤风 (*Tetanus*) ![破伤风](images/effects/tetanus.png)
 - **感染条件**：
@@ -170,7 +180,9 @@
 
   获得缓慢II和虚弱I效果，持续5分钟，时间结束后若未治愈则立即死亡。
   
-  <img src=".\images\image-20250515171011059.png" alt="image-20250515171011059" style="zoom:50%;" align = "left" />
+  <img src=".\images\image-20250515171011059.png" alt="image-20250515171011059" width="300" align = "left" />
+  
+  
 - **治疗方式**：
 
   使用甲硝唑有(100%-耐药性)的几率治愈，或使用抗耐药性微生物胶囊100%治愈。
@@ -178,7 +190,7 @@
 
   初始耐药性为0%，每次使用甲硝唑增加0.1%的耐药性，最高可达100%。
   
-  <img src=".\images\image-20250515170626910.png" alt="image-20250515170626910" style="zoom:50%;" align="left" />
+  <img src=".\images\image-20250515170626910.png" alt="image-20250515170626910" width="300" align="left" />
 
 ### 耳念珠菌感染 (*Candida Infection*) ![耳念珠菌感染](images/effects/exhaustion.png)
 - **感染途径**：
@@ -188,7 +200,7 @@
 
   效果为虚弱、缓慢，持续3分钟，倒计时结束后先触发反胃效果20秒，然后直接死亡。
   
-  <img src=".\images\image-20250515170919484.png" alt="image-20250515170919484" style="zoom:50%;" align = "left" />
+  <img src=".\images\image-20250515170919484.png" alt="image-20250515170919484" width="300" align = "left" />
 - **治疗方式**：
 
   使用抗真菌药物有(100%-耐药性)的几率治愈，或抗耐药性微生物胶囊100%治愈。
@@ -196,13 +208,17 @@
 
   初始耐药性为0%，每次使用抗真菌药物增加0.1%耐药性，最高可达100%。
   
-  <img src=".\images\image-20250515170746136.png" alt="image-20250515170746136" style="zoom:55%;" align="left" />
+  <img src=".\images\image-20250515170746136.png" alt="image-20250515170746136" width="300" align="left" />
+  
+  
 
 ## 特殊方块与装置
 
 ### 菌体提取器 (*Bacterial Extractor*) <img src="images/items/BacterialExtractor.png" width="24">
 
-<img src=".\images\image-20250515172419472.png" alt="image-20250515172419472" style="zoom:50%;" align=left />
+<img src=".\images\image-20250515172419472.png" alt="image-20250515172419472" width="300" align=left />
+
+
 
 - **功能**：
 
@@ -218,7 +234,9 @@
   提取抗生素分泌菌提取液，用于制作抗生素药物。
 
 ### 质粒提取器 (*Plasmid Extractor*) <img src="images/items/PlasmidExtractor.png" width="24">
-<img src=".\images\image-20250515172459998.png" alt="image-20250515172459998" style="zoom:50%;" align = left />
+<img src=".\images\image-20250515172459998.png" alt="image-20250515172459998" width="300" align = left />
+
+
 
 - **功能**：
 
@@ -231,7 +249,9 @@
   右侧3个槽位放入3个不同的DNA片段，中间放入大肠杆菌培养基，点击启动按钮合成装配T6SS的大肠杆菌培养基。
 
 ### 超净工作台 (*Clean Bench*) <img src="images/items/CleanBench.png" width="24">
-<img src=".\images\image-20250515172529435.png" alt="image-20250515172529435" style="zoom:50%;" align="left"/>
+<img src=".\images\image-20250515172529435.png" alt="image-20250515172529435" width="300" align="left"/>
+
+
 
 - **功能**：
 
@@ -245,7 +265,9 @@
 
 ### 灭菌锅 (*Autoclave*)<img src="images/items/Autoclave.png" width="24">
 
-<img src=".\images\image-20250515172606129.png" alt="image-20250515172606129" style="zoom: 50%;" align = "left"/>
+<img src=".\images\image-20250515172606129.png" alt="image-20250515172606129" width="300" align = "left"/>
+
+
 
 - **功能**：
 
@@ -256,7 +278,9 @@
   放入培养基、水桶和**燃料(原版的任意燃料都可以)**，启动后可获得已消毒的培养基。
 
 ### 诊所 (*Clinic*)
-<img src=".\images\image-20250515164322604.png" alt="image-20250515164322604" style="zoom: 50%;" align="left" />
+<img src=".\images\image-20250515164322604.png" alt="image-20250515164322604" width="300" align="left" />
+
+
 
 - **功能**：
 
@@ -296,11 +320,15 @@
 
   <img src="images/recipes/1-1.png" width="300" align="left">
 
+  
+
 - 土块 + 菌丝块 + 水桶 = 土壤浸取液桶（物品栏/工作台）
 
   *Dirt + Mycelium + Water Bucket = Soil Extract Bucket (Inventory/Crafting Table)*
 
    <img src="images/recipes/1-2.png" width="300">
+
+  
 
 - 海带 + 水桶 = 海带桶（物品栏/工作台）
 
@@ -308,11 +336,15 @@
 
    <img src="images/recipes/1-3.png" width="300">
 
+  
+
 - 海带桶 + 熔炉烧制 = 琼脂块
 
   *Kelp Bucket + Furnace Smelting = Agar Block*
 
    <img src="images/recipes/1-4.png" width="300">
+
+  
 
 - 琼脂块 + 玻璃 = 培养基（工作台）
 
@@ -320,11 +352,15 @@
 
    <img src="images/recipes/1-5.png" width="300">
   
+  
+  
 - 粘液球 + 水瓶 = 水凝胶（工作台）
 
   *slime_ball + potion(water)  = hydrogel(Crafting Table)*
 
-  <img src=".\images\image-20250515174126586.png" alt="image-20250515174126586" style="zoom:50%;" align="left"/>
+  <img src=".\images\image-20250515174126586.png" alt="image-20250515174126586" width="300" align="left"/>
+
+  
 
 ### 灭菌锅合成
 
@@ -333,6 +369,8 @@
   *Medium + Water Bucket = Medium Sterilized (Autoclave)*
 
   <img src="images/recipes/1-6.png" width="300" align="left">
+  
+  
 
 ### 菌体提取器合成
 
@@ -342,6 +380,8 @@
 
    <img src="images/recipes/2-1-1.png" width="300">
 
+  
+  
     <img src="images/recipes/2-1-2.png" width="300">
 
 ### 超净工作台合成
@@ -356,11 +396,15 @@
 
    <img src="images/recipes/3-1-3.png" width="300">
 
+  
+
 - 装配T6SS的大肠杆菌培养基 + 水凝胶 = 抗耐药性微生物软膏
 
   *E_coli_t6ss_medium + Hydrogel = Anti_drug_resistant_microbial_ointment*
 
   <img src="images/recipes/3-2.png" width="300" align="left">
+
+  
 
 - 装配T6SS的大肠杆菌培养基 + 空胶囊 = 抗耐药性微生物胶囊
 
@@ -368,11 +412,15 @@
 
   <img src="images/recipes/3-3.png" width="300" align="left">
 
+  
+
 - 培养基(已消毒) + 装配T6SS的大肠杆菌培养基 = 装配T6SS的大肠杆菌培养基(菌种继承)
 
   *Medium_sterilized + E_coli_t6ss_medium = E_coli_t6ss_medium (Species Inheritance)*
 
   <img src="images/recipes/3-4.png" width="300" align="left">
+
+  
 
 - 培养基(已消毒) + 西瓜 = 西瓜噬酸菌培养基
 
@@ -380,11 +428,15 @@
 
   <img src="images/recipes/3-5.png" width="300" align="left">
 
+  
+
 - 培养基(已消毒) + 西瓜噬酸菌培养基 = 西瓜噬酸菌培养基(菌种继承)
 
   *Medium_sterilized + Acidovorax_citrulli_medium = Acidovorax_citrulli_medium (Species Inheritance)*
 
   <img src="images/recipes/3-6.png" width="300" align="left">
+
+  
 
 - 培养基(已消毒) + 大肠杆菌提取液 = 大肠杆菌培养基
 
@@ -392,11 +444,15 @@
 
   <img src="images/recipes/3-7.png" width="300" align="left">
 
+  
+
 - 培养基(已消毒) + 大肠杆菌培养基 = 大肠杆菌培养基(菌种继承)
 
   *Medium_sterilized + E_coli_medium = E_coli_medium (Species Inheritance)*
 
   <img src="images/recipes/3-8.png" width="300" align="left">
+  
+  
 
 ### 质粒提取器合成
 
@@ -406,11 +462,15 @@
 
   <img src="images/recipes/4-1.png" width="300" align="left">
 
+  
+
 - (右边注入模块)3个DNA片段 + 大肠杆菌培养基 → 装配T6SS的大肠杆菌培养基
 
   *3 DNA Segments + E_coli_medium → E_coli_t6ss_medium*
 
   <img src="images/recipes/4-2.png" width="300" align="left">
+  
+  
 
 ## 指令系统
 
@@ -437,6 +497,14 @@
 
   查找最近的诊所结构位置
 
+## 安装与体验
+
+❗本模组基于 fabric for 1.20.4 进行开发
+
+## 反馈问题
+
+请联系 **2504170651@qq.com**
+
 ## 版权声明
 
 本作品作者为2025年IGEM队伍Sustech-BIo的成员，转载前。
@@ -455,7 +523,9 @@
 
 转载、二次创作请附上本作品链接：https://github.com/EricFeng9/sustech_bioresistance
 
+欢迎关注**Sustech-Bio**官方公众号👇获取团队最新动向
 
+![db28d58aa9f82804ddc80bc33314251](.\images\db28d58aa9f82804ddc80bc33314251.jpg)
 
 ---
 

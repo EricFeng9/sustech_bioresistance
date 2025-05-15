@@ -1,16 +1,15 @@
 package sustech.bioresistance.mixin;
 
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.stat.Stats;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import sustech.bioresistance.Bioresistance;
+
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.stat.Stats;
 import sustech.bioresistance.ModStatusEffects;
-import sustech.bioresistance.data.TetanusResistanceManager;
 
 @Mixin(PlayerEntity.class) // 注入到PlayerEntity类
 public class PlayerEntityMixin {
