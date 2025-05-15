@@ -24,6 +24,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import sustech.bioresistance.complexBlocks.Bio_Fridge;
 import sustech.bioresistance.entities.RatEntity;
+import sustech.bioresistance.entities.DoctorEntity;
 import sustech.bioresistance.events.PlagueEventHandler;
 import sustech.bioresistance.events.TetanusEventHandler;
 
@@ -52,6 +53,7 @@ public class Bioresistance implements ModInitializer {
         ModStatusEffects.initialize();
         ModEntities.registerModEntities();
         FabricDefaultAttributeRegistry.register(ModEntities.RAT, RatEntity.createRatAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.DOCTOR, DoctorEntity.createDoctorAttributes());
         // 添加老鼠生成
         ModWorldGen.addRatSpawn();
         // 注册破伤风事件处理器
