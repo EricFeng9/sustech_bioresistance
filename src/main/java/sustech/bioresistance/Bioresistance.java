@@ -1,34 +1,16 @@
 package sustech.bioresistance;
 
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.EntityDimensions;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import net.fabricmc.fabric.api.event.player.UseBlockCallback;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.math.BlockPos;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import software.bernie.geckolib.GeckoLib;
 import sustech.bioresistance.complexBlocks.Bio_Fridge;
 import sustech.bioresistance.entities.RatEntity;
 import sustech.bioresistance.events.PlagueEventHandler;
 import sustech.bioresistance.events.TetanusEventHandler;
-
-// 保留GeckoLib导入，但可能在build.gradle中指定其为compileOnly依赖
-import software.bernie.geckolib.GeckoLib;
 
 public class Bioresistance implements ModInitializer {
 	public static final String MOD_ID = "bio-resistance";
@@ -52,8 +34,8 @@ public class Bioresistance implements ModInitializer {
         ModStatusEffects.initialize();
         ModEntities.registerModEntities();
         FabricDefaultAttributeRegistry.register(ModEntities.RAT, RatEntity.createRatAttributes());
-        // 添加老鼠生成
-        ModWorldGen.addRatSpawn();
+        // 初始化世界生成
+        ModWorldGen.initialize();
         // 注册破伤风事件处理器
         TetanusEventHandler.register();
         // 注册鼠疫事件处理器
