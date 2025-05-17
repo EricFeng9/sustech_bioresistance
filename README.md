@@ -4,6 +4,10 @@
 
 # 生物抗药性模组 (Bioresistance Mod)
 
+<div align="right">
+  <a href="README.md">中文</a> | <a href="README_EN.md">English</a>
+</div>
+
 <img src=".\images\海报设计 横.png" alt="海报设计 横" style="zoom:50%;" />
 
 本团队将研究课题融入游戏，以模组的形式为Minecraft添加了一系列与生物抗药性相关的物品、疾病机制和治疗方案，通过模拟现实世界中微生物耐药性的问题，为游戏增添了医学和合成生物学领域相关的挑战。
@@ -386,6 +390,24 @@
 
   <img src=".\images\image-20250515174126586.png" alt="image-20250515174126586" width="300"   />
 
+* 铁锭+铜锭+炼药锅+熔炉+铁块 = 灭菌锅（工作台）
+  
+  <img src=".\images\image-20250517214447985.png" alt="image-20250517214447985" width="300" />
+  
+* 铁锭+玻璃+铁块+铜块 = 超净工作台（工作台）
+  
+  <img src=".\images\image-20250517215718957.png" alt="image-20250517215718957" width="300" />
+  
+* 铁块+玻璃+超净工作台 = 质粒提取器（工作台）
+  
+  <img src=".\images\image-20250517215351379.png" alt="image-20250517215351379" width="300" />
+  
+* 铁块+酿造台+漏斗 = 菌体提取器（工作台）
+  
+  <img src=".\images\image-20250517215523353.png" alt="image-20250517215523353" width="300" />
+  
+  
+  
   
 
 ### 灭菌锅合成

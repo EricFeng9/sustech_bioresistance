@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iui",
+        "ixi",
+        "iii"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_block"
+        },
+        "u": {
+            "item": "minecraft:brewing_stand"
+        },
+        "x": {
+            "item": "minecraft:hopper"
+        }
+    },
+    "result": {
+        "item": "bio-resistance:bacterial_extractor",
+        "count": 1
+    }
+} 

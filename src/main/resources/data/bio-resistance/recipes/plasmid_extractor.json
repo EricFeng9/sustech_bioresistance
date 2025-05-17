@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ixi",
+        "iui",
+        "iii"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_block"
+        },
+        "u": {
+            "item": "bio-resistance:clean_table"
+        },
+        "x": {
+            "item": "minecraft:glass"
+        }
+    },
+    "result": {
+        "item": "bio-resistance:plasmid_extractor",
+        "count": 1
+    }
+} 
