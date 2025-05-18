@@ -458,7 +458,7 @@ Download the following files:
 
 <img src=".\images\image-20250515183005951.png" alt="image-20250515182918831" width=300px />
 
-Go to [geckolib-forge-1.20.4-4.4.4.jar](https://www.mcmod.cn/download/3232.html) to download the following file:
+Go to [geckolib-fabric-1.20.4-4.4.4.jar](https://www.mcmod.cn/download/3232.html) to download the following file:
 
 <img src=".\images\image-20250515183108734.png" alt="image-20250515183108734" width=300px />
 
