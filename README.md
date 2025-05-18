@@ -568,7 +568,7 @@
 
 <img src=".\images\image-20250515183005951.png" alt="image-20250515182918831" width=300px    />
 
-前往[geckolib-forge-1.20.4-4.4.4.jar]([MOD下载 - GeckoLib - MC百科|最大的Minecraft中文MOD百科](https://www.mcmod.cn/download/3232.html))下载以下文件
+前往[geckolib-fabric-1.20.4-4.4.4.jar]([MOD下载 - GeckoLib - MC百科|最大的Minecraft中文MOD百科](https://www.mcmod.cn/download/3232.html))下载以下文件
 
 <img src=".\images\image-20250515183108734.png" alt="image-20250515183108734" width=300px     />
 
